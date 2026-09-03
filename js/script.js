@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
       revealSection.style.transform = 'translateY(0)';
     }
 
-    // Launch celebratory flower shower for EXACTLY 3 SECONDS
-    triggerPetalBurst(35, 3000);
+    // Launch celebratory flower shower for EXACTLY 5 SECONDS
+    triggerPetalBurst(40, 5000);
 
     // After animation finishes, smoothly focus the reveal section
     setTimeout(() => {
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let petalAnimationId = null;
   let isShowering = false;
   let showerStartTime = 0;
-  let showerDurationMs = 3000;
+  let showerDurationMs = 5000;
 
   function resizeCanvas() {
     petalCanvas.width = window.innerWidth;
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function triggerPetalBurst(count = 35, duration = 3000) {
+  function triggerPetalBurst(count = 40, duration = 5000) {
     if (isShowering) {
       cancelAnimationFrame(petalAnimationId);
     }
@@ -314,14 +314,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (showerPetalsBtn) {
     showerPetalsBtn.addEventListener('click', () => {
-      triggerPetalBurst(35, 3000);
-      showToast('🌸 बाप्पांच्या चरणी पुष्पवृष्टी!');
+      triggerPetalBurst(40, 5000);
+      showToast('🌸 बाप्पांच्या चरणी ५ सेकंद पुष्पवृष्टी!');
     });
   }
   if (petalShowerBtn) {
     petalShowerBtn.addEventListener('click', () => {
-      triggerPetalBurst(40, 3000);
-      showToast('🌸 बाप्पांच्या चरणी पुष्पवृष्टी!');
+      triggerPetalBurst(40, 5000);
+      showToast('🌸 बाप्पांच्या चरणी ५ सेकंद पुष्पवृष्टी!');
     });
   }
 
@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Target all content sections and cards for subtle interactive entrance
   const animatableElements = document.querySelectorAll(
-    '.invitation-section:not(#revealSection), .royal-schedule-tablet, .family-card, .memory-card, .aarti-content-card, .prasad-card, .location-card, .final-card'
+    '.invitation-section:not(#revealSection), .royal-schedule-tablet, .family-card, .location-card'
   );
 
   animatableElements.forEach((el, index) => {

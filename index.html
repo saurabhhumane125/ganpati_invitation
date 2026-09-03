@@ -18,12 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet (Cache-busted v=8) -->
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <!-- Stylesheet (Cache-busted v=9) -->
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
-  <!-- Interactive Canvas for Falling Marigold Petals (Runs strictly for 3 seconds on door open or on demand) -->
+  <!-- Interactive Canvas for Falling Marigold Petals (Runs strictly for 5 seconds on door open or on demand) -->
   <canvas id="petalCanvas" class="petal-canvas" aria-hidden="true"></canvas>
 
   <!-- ======================================================= -->
@@ -160,10 +160,7 @@
         <li><a href="#revealSection">दर्शन</a></li>
         <li><a href="#familySection">परिवार</a></li>
         <li><a href="#detailsSection">सोहळा</a></li>
-        <li><a href="#aartiSection">आरती</a></li>
-        <li><a href="#prasadSection">महाप्रसाद</a></li>
-        <li><a href="#locationSection">स्थळ</a></li>
-        <li><a href="#memoriesSection">आठवणी</a></li>
+        <li><a href="#locationSection">स्थळ व निमंत्रण</a></li>
       </ul>
     </nav>
 
@@ -357,123 +354,16 @@
       </div>
     </section>
 
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
-
-    <!-- 5. AARTI SECTION (आरतीचा मंगल सोहळा व समई) -->
-    <section id="aartiSection" class="invitation-section aarti-section">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">भक्तिमय वातावरण</span>
-          <h2 class="section-title">आरतीचा मंगल सोहळा</h2>
-        </div>
-
-        <div class="aarti-content-card">
-          <div class="samai-visual-wrapper">
-            <img src="assets/images/brass_samai.jpg" 
-                 alt="पारंपरिक पितळी समई व प्रज्वलित ज्योत" 
-                 class="samai-image"
-                 loading="lazy">
-            <div class="samai-flame-glow" aria-hidden="true"></div>
-          </div>
-
-          <div class="aarti-info">
-            <div class="time-badge">
-              <span class="badge-icon" aria-hidden="true">🪔</span>
-              <span class="badge-text">सकाळी ९:०० वाजता</span>
-            </div>
-            <h3 class="aarti-headline">मंगल आरती व धूपदीप</h3>
-            <p class="aarti-description">
-              बाप्पांच्या आरतीस उपस्थित राहून<br>
-              त्यांच्या चरणी भक्तिभावाने नतमस्तक होऊया.
-            </p>
-            <p class="aarti-ambience">
-              घंटेचा नाद, सुगंधी कापूर आणि एकमुखाने होणारा बाप्पांचा जयघोष!
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
-
-    <!-- 6. PRASAD SECTION (महाप्रसाद व उकडीचे मोदक) -->
-    <section id="prasadSection" class="invitation-section prasad-section">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">गोडधोड प्रसाद</span>
-          <h2 class="section-title">महाप्रसाद</h2>
-        </div>
-
-        <div class="prasad-card">
-          <div class="modak-visual-wrapper">
-            <img src="assets/images/ukdiche_modak.jpg" 
-                 alt="केळीच्या पानावर शुद्ध साजूक तुपासह गरमागरम उकडीचे मोदक" 
-                 class="modak-image"
-                 loading="lazy">
-          </div>
-
-          <div class="prasad-info">
-            <div class="prasad-badge">
-              <span>आरतीनंतर लगेचच</span>
-            </div>
-            <h3 class="prasad-headline">उकडीचे मोदक व स्नेहभोजन</h3>
-            <p class="prasad-text">
-              आरतीनंतर स्नेहभोजन व महाप्रसादाचा आस्वाद घ्यावा.
-            </p>
-            <div class="prasad-highlight-box">
-              <span class="leaf-icon" aria-hidden="true">🍃</span>
-              <span>केशरयुक्त गरमागरम उकडीचे मोदक आणि शुद्ध साजूक तुपाची धार!</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
-
-    <!-- 7. SPECIAL DEVOTIONAL ELEMENT (बाप्पांच्या चरणी...) -->
-    <section class="invitation-section devotional-section">
-      <div class="section-container">
-        <div class="devotional-box">
-          <span class="sacred-motif" aria-hidden="true">🕉</span>
-          <h2 class="devotional-title">बाप्पांच्या चरणी...</h2>
-          <div class="shloka-content">
-            <p class="shloka-line">सुखकर्ता दुःखहर्ता वार्ता विघ्नाची ।</p>
-            <p class="shloka-line">नुरवी पुरवी प्रेम कृपा जयाची ॥</p>
-            <p class="shloka-line">सर्वांगी सुंदर उटी शेंदुराची ।</p>
-            <p class="shloka-line">कंठी झळके माळ मुक्ताफळांची ॥</p>
-            <p class="shloka-line highlight-verse">जय देव जय देव जय मंगलमूर्ती ।</p>
-            <p class="shloka-line highlight-verse">दर्शनमात्रे मनकामना पुरती ॥</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
-
-    <!-- 8. LOCATION SECTION (बाप्पांचे आगमनस्थळ) -->
+    <!-- 5. LOCATION & INVITATION SECTION (बाप्पांचे आगमनस्थळ व सस्नेह निमंत्रण) -->
     <section id="locationSection" class="invitation-section location-section">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">पत्ता व स्थळ</span>
+          <span class="section-tag">पत्ता व आगमन</span>
           <h2 class="section-title">बाप्पांचे आगमनस्थळ</h2>
+          <p class="section-subtitle">
+            आपल्या उपस्थितीने सोहळ्याची शोभा वाढवावी
+          </p>
         </div>
 
         <div class="location-card">
@@ -485,7 +375,7 @@
                  loading="lazy">
             <div class="map-overlay-badge">
               <span class="pin-icon" aria-hidden="true">📍</span>
-              <span>जोशी निवास, दादर</span>
+              <span>जोशी निवास, दादर (पश्चिम)</span>
             </div>
           </div>
 
@@ -498,148 +388,39 @@
               दादर (पश्चिम), मुंबई - ४०००२८
             </address>
             <p class="location-note">
-              आपली आतुरतेने वाट पाहत आहोत.
+              ॥ सस्नेह सहकुटुंब उपस्थित राहावे ही नम्र विनंती ॥
             </p>
             
-            <!-- Prominent Marathi CTA Button to Open Google Maps -->
-            <a href="https://maps.google.com/?q=Dadar+West+Mumbai+400028" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn-primary map-btn"
-               id="openMapBtn">
-              <span class="btn-icon" aria-hidden="true">🗺</span>
-              <span class="btn-text">मार्ग पाहा (गूगल मॅप्स)</span>
-            </a>
-          </div>
-        </div>
+            <!-- Unified Action Buttons Group -->
+            <div class="action-buttons-group">
+              <a href="https://maps.google.com/?q=Dadar+West+Mumbai+400028" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-primary action-btn"
+                 id="openMapBtn">
+                <span class="btn-icon" aria-hidden="true">🗺</span>
+                <span class="btn-text">मार्ग पाहा (गूगल मॅप्स)</span>
+              </a>
 
-      </div>
-    </section>
+              <button id="addToCalendarBtn" class="btn-secondary action-btn">
+                <span class="btn-icon" aria-hidden="true">📅</span>
+                <span class="btn-text">कॅलेंडरमध्ये जोडा</span>
+              </button>
 
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
+              <button id="shareInviteBtn" class="btn-secondary action-btn">
+                <span class="btn-icon" aria-hidden="true">📲</span>
+                <span class="btn-text">निमंत्रण शेअर करा</span>
+              </button>
 
-    <!-- 9. PHOTO / MEMORY GALLERY (गेल्या वर्षांच्या काही आठवणी) -->
-    <section id="memoriesSection" class="invitation-section memories-section">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">गोड आठवणी</span>
-          <h2 class="section-title">गेल्या वर्षांच्या काही आठवणी</h2>
-          <p class="section-subtitle">
-            बाप्पांच्या सेवेतील आणि घरातील आनंदाचे काही क्षण
-          </p>
-        </div>
-
-        <!-- Staggered Memory Layout -->
-        <div class="memories-grid">
-          
-          <figure class="memory-card memory-card-1">
-            <div class="memory-img-wrapper">
-              <img src="assets/images/memories/memory_aarti.jpg" 
-                   alt="घरातील भक्तिमय कौटुंबिक आरती" 
-                   class="memory-image"
-                   loading="lazy">
+              <button id="replayDoorBtn" class="btn-tertiary action-btn">
+                <span class="btn-icon" aria-hidden="true">🚪</span>
+                <span class="btn-text">पुन्हा दार उघडा</span>
+              </button>
             </div>
-            <figcaption class="memory-caption">
-              <span class="caption-title">भक्तिमय आरती</span>
-              <span class="caption-desc">संपूर्ण परिवाराची एकमुखी प्रार्थना</span>
-            </figcaption>
-          </figure>
 
-          <figure class="memory-card memory-card-2">
-            <div class="memory-img-wrapper">
-              <img src="assets/images/memories/memory_decor.jpg" 
-                   alt="पारंपरिक मखर व फुलांची आरास" 
-                   class="memory-image"
-                   loading="lazy">
-            </div>
-            <figcaption class="memory-caption">
-              <span class="caption-title">मखर व आरास</span>
-              <span class="caption-desc">झेंडूच्या फुलांनी सजलेला देव्हारा</span>
-            </figcaption>
-          </figure>
-
-          <figure class="memory-card memory-card-3">
-            <div class="memory-img-wrapper">
-              <img src="assets/images/memories/memory_modak.jpg" 
-                   alt="परिवारासह उकडीचे मोदक बनवतानाचे क्षण" 
-                   class="memory-image"
-                   loading="lazy">
-            </div>
-            <figcaption class="memory-caption">
-              <span class="caption-title">मोदकांची तयारी</span>
-              <span class="caption-desc">आजी आणि नातवंडांचा गोड सहभाग</span>
-            </figcaption>
-          </figure>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Toran Section Separator -->
-    <div class="section-separator" aria-hidden="true">
-      <div class="separator-toran"></div>
-    </div>
-
-    <!-- 10. FINAL INVITATION SECTION (सस्नेह निमंत्रण व आशीर्वाद) -->
-    <section class="invitation-section final-invitation-section">
-      <div class="section-container">
-        
-        <div class="final-card">
-          <div class="final-top-symbol" aria-hidden="true">🪔</div>
-          
-          <h2 class="final-heading">
-            आपली उपस्थितीच आमच्यासाठी आशीर्वाद आहे.
-          </h2>
-          
-          <p class="final-body-text">
-            आपण सहकुटुंब उपस्थित राहून<br>
-            बाप्पांचे आशीर्वाद घ्यावेत,<br>
-            ही नम्र विनंती.
-          </p>
-
-          <div class="final-signature">
-            <p class="sign-label">सस्नेह,</p>
-            <p class="sign-family">जोशी परिवार</p>
+            <!-- Toast Notification for Actions -->
+            <div id="toastNotification" class="toast-notification" role="status" aria-live="polite"></div>
           </div>
-
-          <!-- Bottom Mini Bappa Motif -->
-          <div class="final-bappa-motif">
-            <span class="modak-glyph" aria-hidden="true">⚜</span>
-          </div>
-
-          <!-- Interactive Action Buttons -->
-          <div class="action-buttons-group">
-            
-            <button id="petalShowerBtn" class="btn-primary action-btn">
-              <span class="btn-icon" aria-hidden="true">🌸</span>
-              <span class="btn-text">पुष्पवृष्टी करा</span>
-            </button>
-
-            <button id="addToCalendarBtn" class="btn-secondary action-btn">
-              <span class="btn-icon" aria-hidden="true">📅</span>
-              <span class="btn-text">कॅलेंडरमध्ये जोडा</span>
-            </button>
-
-            <button id="shareInviteBtn" class="btn-secondary action-btn">
-              <span class="btn-icon" aria-hidden="true">📲</span>
-              <span class="btn-text">निमंत्रण शेअर करा</span>
-            </button>
-
-            <button id="replayDoorBtn" class="btn-tertiary action-btn">
-              <span class="btn-icon" aria-hidden="true">🚪</span>
-              <span class="btn-text">पुन्हा दार उघडा</span>
-            </button>
-
-          </div>
-
-          <!-- Toast Notification for Actions -->
-          <div id="toastNotification" class="toast-notification" role="status" aria-live="polite"></div>
-
         </div>
 
       </div>
@@ -675,7 +456,7 @@
 
   </main>
 
-  <!-- JavaScript (Cache-busted v=8) -->
-  <script src="js/script.js?v=8"></script>
+  <!-- JavaScript (Cache-busted v=9) -->
+  <script src="js/script.js?v=9"></script>
 </body>
 </html>
