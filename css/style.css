@@ -142,7 +142,7 @@ a {
   backdrop-filter: blur(12px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 2.6s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 2.6s;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 1.8s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 1.8s;
 }
 
 /* Gracefully visible only AFTER the door opens */
@@ -221,12 +221,12 @@ body.opened .floating-controls,
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: var(--royal-morpankhi-dark);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.8s ease 2.6s, visibility 0.8s ease 2.6s;
+  transition: opacity 0.2s ease 2.1s, visibility 0.2s ease 2.1s;
 }
 
 .bisector-overlay.doors-opened {
@@ -241,7 +241,7 @@ body.opened .floating-controls,
   max-width: 520px;
   position: relative;
   overflow: hidden;
-  background: var(--royal-morpankhi-dark);
+  background: transparent;
   display: flex;
 }
 
@@ -324,21 +324,13 @@ body.opened .floating-controls,
 .left-motif { right: 10px; }
 .right-motif { left: 10px; }
 
-/* Center Divine Glow in the Bisector Seam */
+/* Center Divine Glow in the Bisector Seam - Removed to eliminate lingering golden screen lag */
 .bisector-divine-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(247, 232, 195, 0.95) 0%, rgba(212, 175, 55, 0.5) 45%, transparent 75%);
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 1.2s ease, transform 3.0s ease;
-  pointer-events: none;
-  z-index: 10;
+  display: none !important;
 }
 
 .doors-opened .bisector-divine-glow {
-  opacity: 1;
-  transform: scale(1.6);
+  display: none !important;
 }
 
 /* Center Ganpati Mukut Themed Round Button */
