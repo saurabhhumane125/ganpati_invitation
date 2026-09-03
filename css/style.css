@@ -563,7 +563,7 @@ body.opened .floating-controls,
 }
 
 /* --------------------------------------------------------------------------
-   5. MORPANKHI PILLAR STRIPS WITH REALISTIC MARIGOLD TORAN (Edge-to-Edge)
+   5. MORPANKHI PILLAR STRIPS WITH REALISTIC MARIGOLD TORAN (Main Home Page with Fade)
    -------------------------------------------------------------------------- */
 .morpankhi-toran-pillar {
   position: absolute;
@@ -573,6 +573,20 @@ body.opened .floating-controls,
   z-index: 50;
   pointer-events: none;
   overflow: hidden;
+  /* Smoothly fade out at the bottom transition to the next section */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.4) 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.4) 85%, transparent 100%);
+}
+
+.morpankhi-toran-pillar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-royal-ivory) 100%);
+  pointer-events: none;
 }
 
 .morpankhi-pillar-left {
@@ -616,16 +630,16 @@ body.opened .floating-controls,
 }
 
 /* --------------------------------------------------------------------------
-   6. MAIN INVITATION PAGE LAYOUT & TYPOGRAPHY (Edge-to-Edge with Zero Outer Space)
+   6. MAIN INVITATION PAGE LAYOUT & TYPOGRAPHY
    -------------------------------------------------------------------------- */
 .main-invitation {
   position: relative;
   width: 100%;
-  max-width: 100%; /* Zero space outside strips on both sides */
+  max-width: 100%;
   margin: 0;
-  padding: 0 52px 40px; /* Comfortable breathing room inside the Morpankhi pillars */
+  padding: 0 0 40px;
   background-color: var(--bg-royal-ivory);
-  overflow-x: clip; /* Eliminates any horizontal spill */
+  overflow-x: clip;
   box-sizing: border-box;
 }
 
@@ -784,7 +798,17 @@ body.opened .floating-controls,
    7. REVEAL SECTION & ADORABLE BAPPA PRESENTATION
    -------------------------------------------------------------------------- */
 .reveal-section {
-  padding-top: 10px;
+  position: relative;
+  width: 100%;
+  padding: 10px 52px 36px; /* Protected space for side torans on main home page */
+  box-sizing: border-box;
+}
+
+.invitation-section:not(.reveal-section) {
+  position: relative;
+  width: 100%;
+  padding: 20px 16px; /* Clean full-width breathing room for subsequent sections */
+  box-sizing: border-box;
 }
 
 .auspicious-heading-group {
