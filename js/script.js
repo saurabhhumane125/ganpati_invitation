@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Target all content sections and cards for subtle interactive entrance
   const animatableElements = document.querySelectorAll(
-    '.invitation-section:not(#revealSection), .detail-card, .family-card, .memory-card, .aarti-content-card, .prasad-card, .location-card, .final-card'
+    '.invitation-section:not(#revealSection), .royal-schedule-tablet, .family-card, .memory-card, .aarti-content-card, .prasad-card, .location-card, .final-card'
   );
 
   animatableElements.forEach((el, index) => {

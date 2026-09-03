@@ -18,8 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet (Cache-busted v=7) -->
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <!-- Stylesheet (Cache-busted v=8) -->
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
@@ -146,9 +146,13 @@
   <!-- ======================================================= -->
   <main id="mainInvitation" class="main-invitation">
 
-    <!-- Artificial Toran on Both Sides along Main Page Length -->
-    <div class="side-toran side-toran-left" aria-hidden="true"></div>
-    <div class="side-toran side-toran-right" aria-hidden="true"></div>
+    <!-- Royal Morpankhi Pillar Strips on Both Sides with Animated Toran -->
+    <aside class="morpankhi-toran-pillar morpankhi-pillar-left" aria-hidden="true">
+      <div class="side-toran-garland"></div>
+    </aside>
+    <aside class="morpankhi-toran-pillar morpankhi-pillar-right" aria-hidden="true">
+      <div class="side-toran-garland"></div>
+    </aside>
 
     <!-- Subtle Quick Section Navigation (Marathi Only) -->
     <nav class="subtle-nav" aria-label="विभाग मार्गक्रमण">
@@ -214,7 +218,7 @@
       <div class="separator-toran"></div>
     </div>
 
-    <!-- 3. FAMILY INTRODUCTION (आमचा परिवार - Horizontal Scrolling) -->
+    <!-- 3. FAMILY INTRODUCTION (आमचा परिवार - Clean & Focused) -->
     <section id="familySection" class="invitation-section family-section">
       <div class="section-container">
         
@@ -222,12 +226,11 @@
           <span class="section-tag">स्नेहबंध</span>
           <h2 class="section-title">आमचा परिवार</h2>
           <p class="section-subtitle">
-            बाप्पांच्या आगमनाच्या या मंगल सोहळ्यासाठी<br>
-            आपले सहकुटुंब स्वागत आहे.
+            आपल्या सहकुटुंब स्वागतासाठी उत्सुक
           </p>
           <div class="scroll-hint">
             <span class="swipe-arrow" aria-hidden="true">←</span>
-            <span>इतर सदस्यांसाठी पुढे सरकवा</span>
+            <span>पुढील सदस्यांसाठी सरकवा</span>
             <span class="swipe-arrow" aria-hidden="true">→</span>
           </div>
         </div>
@@ -235,7 +238,7 @@
         <!-- Horizontal Scrolling Family Container -->
         <div class="family-scroll-container" id="familyScrollContainer">
           
-          <!-- Family Card 1: ज्येष्ठ आजी-आजोबा -->
+          <!-- Family Card 1: आजी-आजोबा -->
           <article class="family-card">
             <div class="card-photo-frame">
               <img src="assets/images/family/grandparents.jpg" 
@@ -246,9 +249,8 @@
             </div>
             <div class="card-content">
               <span class="member-role">ज्येष्ठ सदस्य / आशीर्वाद</span>
-              <h3 class="member-name">श्री. विनायक गणेश जोशी</h3>
-              <h3 class="member-name">सौ. सुनीता विनायक जोशी</h3>
-              <p class="member-note">"बाप्पांचा कृपाशीर्वाद आणि वडीलधाऱ्यांची प्रेमळ माया सदैव पाठीशी राहो."</p>
+              <h3 class="member-name">श्री. विनायक व सौ. सुनीता जोशी</h3>
+              <p class="member-relation">आजी व आजोबा</p>
             </div>
           </article>
 
@@ -263,9 +265,8 @@
             </div>
             <div class="card-content">
               <span class="member-role">निमंत्रक</span>
-              <h3 class="member-name">श्री. अभिजीत विनायक जोशी</h3>
-              <h3 class="member-name">सौ. मृणाल अभिजीत जोशी</h3>
-              <p class="member-note">"आपल्या आगमनाने आमच्या घरगुती उत्सवाची शोभा द्विगुणीत होईल."</p>
+              <h3 class="member-name">श्री. अभिजीत व सौ. मृणाल जोशी</h3>
+              <p class="member-relation">आई व बाबा</p>
             </div>
           </article>
 
@@ -279,10 +280,9 @@
               <div class="frame-gold-border"></div>
             </div>
             <div class="card-content">
-              <span class="member-role">लहान बाळगोपाळ</span>
-              <h3 class="member-name">चि. अथर्व अभिजीत जोशी</h3>
-              <h3 class="member-name">कु. सई अभिजीत जोशी</h3>
-              <p class="member-note">"बाप्पांचे स्वागत आणि मोदकांचा आस्वाद घेण्यासाठी आम्ही आतुर आहोत!"</p>
+              <span class="member-role">चिमुकले सदस्य</span>
+              <h3 class="member-name">चि. अथर्व व कु. सई जोशी</h3>
+              <p class="member-relation">नातू व नात</p>
             </div>
           </article>
 
@@ -303,45 +303,53 @@
       <div class="separator-toran"></div>
     </div>
 
-    <!-- 4. CELEBRATION DETAILS (बाप्पांच्या आगमनाची वेळ व स्थापना) -->
+    <!-- 4. CELEBRATION DETAILS (सोहळा कार्यक्रम पत्रिका - Clean, Focused Royal Schedule) -->
     <section id="detailsSection" class="invitation-section details-section">
       <div class="section-container">
         
         <div class="section-header">
-          <span class="section-tag">शुभ मुहूर्त</span>
-          <h2 class="section-title">बाप्पांच्या आगमनाची वेळ</h2>
+          <span class="section-tag">महत्त्वाचे क्षण</span>
+          <h2 class="section-title">सोहळा कार्यक्रम</h2>
           <p class="section-subtitle">
-            मंगलमय वातावरणात बाप्पांचे आपल्या घरी आगमन होत आहे.
+            बाप्पांच्या आगमनाचे शुभ मुहूर्त व वेळ
           </p>
         </div>
 
-        <div class="details-grid">
+        <!-- Royal Schedule Tablet (Single Focused Presentation) -->
+        <div class="royal-schedule-tablet">
           
-          <!-- Card 1: तारीख -->
-          <div class="detail-card date-card">
-            <div class="detail-icon" aria-hidden="true">📅</div>
-            <span class="detail-label">शुभ दिवस व दिनांक</span>
-            <h3 class="detail-value">१४ सप्टेंबर २०२६</h3>
-            <p class="detail-subtext">भाद्रपद शुक्ल चतुर्थी</p>
-            <span class="auspicious-tithi">सोमवार (गणेश चतुर्थी)</span>
+          <!-- Item 1: शुभ दिवस व तिथी -->
+          <div class="schedule-entry">
+            <div class="schedule-entry-icon" aria-hidden="true">📅</div>
+            <div class="schedule-entry-body">
+              <span class="schedule-meta-tag">शुभ तिथी</span>
+              <h3 class="schedule-main-text">सोमवार, १४ सप्टेंबर २०२६</h3>
+              <p class="schedule-sub-text">भाद्रपद शुक्ल चतुर्थी (गणेश चतुर्थी)</p>
+            </div>
           </div>
 
-          <!-- Card 2: आगमनाची वेळ व प्रतिष्ठापना -->
-          <div class="detail-card time-card">
-            <div class="detail-icon" aria-hidden="true">⏰</div>
-            <span class="detail-label">गृहप्रवेश व स्थापना</span>
-            <h3 class="detail-value">सकाळी ८:०० वाजता</h3>
-            <p class="detail-subtext">गणपती प्रतिष्ठापना</p>
-            <span class="auspicious-tithi">वेदोक्त मंत्रोच्चार व महापूजा</span>
+          <div class="schedule-entry-divider"></div>
+
+          <!-- Item 2: आगमन व प्रतिष्ठापना -->
+          <div class="schedule-entry">
+            <div class="schedule-entry-icon" aria-hidden="true">⏰</div>
+            <div class="schedule-entry-body">
+              <span class="schedule-meta-tag">स्थापना मुहूर्त</span>
+              <h3 class="schedule-main-text">सकाळी ठिक ८:०० वाजता</h3>
+              <p class="schedule-sub-text">वेदोक्त मंत्रोच्चार व बाप्पांची महापूजा</p>
+            </div>
           </div>
 
-          <!-- Card 3: सहकुटुंब आमंत्रण -->
-          <div class="detail-card blessing-card">
-            <div class="detail-icon" aria-hidden="true">🌺</div>
-            <span class="detail-label">विशेष विनंती</span>
-            <h3 class="detail-value">सहकुटुंब आगमन</h3>
-            <p class="detail-subtext">बाप्पांचे प्रथम दर्शन व पूजन</p>
-            <span class="auspicious-tithi">आपली उपस्थिती प्रार्थनीय</span>
+          <div class="schedule-entry-divider"></div>
+
+          <!-- Item 3: सहकुटुंब दर्शन व उपस्थिती -->
+          <div class="schedule-entry">
+            <div class="schedule-entry-icon" aria-hidden="true">🌺</div>
+            <div class="schedule-entry-body">
+              <span class="schedule-meta-tag">सस्नेह आमंत्रण</span>
+              <h3 class="schedule-main-text">सप्रेम सहकुटुंब आगमन</h3>
+              <p class="schedule-sub-text">बाप्पांच्या प्रथम दर्शनाचा व प्रसादाचा लाभ घ्यावा</p>
+            </div>
           </div>
 
         </div>
@@ -637,15 +645,16 @@
       </div>
     </section>
 
-    <!-- Floating Audio & Utility Controls (Strictly bound to website container and visible only after door opening) -->
+    <!-- Floating Audio & Utility Controls (Horizontal Center-Docked Royal Morpankhi Pill) -->
     <aside class="floating-controls" id="floatingControls" aria-label="ध्वनी व साधने">
-      <button id="soundToggleBtn" class="control-btn" aria-label="ध्वनी चालू किंवा बंद करा" title="ध्वनी चालू/बंद">
+      <button id="soundToggleBtn" class="control-btn" aria-label="घंटेचा नाद चालू किंवा बंद करा" title="घंटेचा नाद">
         <span class="control-icon bell-icon" aria-hidden="true">🔔</span>
-        <span class="control-text" id="soundStatusText">ध्वनी</span>
+        <span class="control-pill-text" id="soundStatusText">घंटा नाद</span>
       </button>
+      <span class="control-pill-divider" aria-hidden="true">|</span>
       <button id="showerPetalsBtn" class="control-btn" aria-label="पुष्पवृष्टी करा" title="पुष्पवृष्टी">
         <span class="control-icon" aria-hidden="true">🌸</span>
-        <span class="control-text">पुष्पवृष्टी</span>
+        <span class="control-pill-text">पुष्पवृष्टी</span>
       </button>
     </aside>
 
@@ -666,7 +675,7 @@
 
   </main>
 
-  <!-- JavaScript (Cache-busted v=7) -->
-  <script src="js/script.js?v=7"></script>
+  <!-- JavaScript (Cache-busted v=8) -->
+  <script src="js/script.js?v=8"></script>
 </body>
 </html>

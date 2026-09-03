@@ -118,21 +118,27 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   3. FLOATING UTILITY CONTROLS (Royal Morpankhi & Gold - Strictly Inside Container)
+   3. FLOATING UTILITY CONTROLS (Center-Docked Royal Morpankhi & Gold Pill)
    -------------------------------------------------------------------------- */
 .floating-controls {
   position: fixed;
-  bottom: 24px;
-  /* Strictly pinned to the right edge of the website container on desktop & mobile */
-  right: max(16px, calc((100vw - var(--container-max)) / 2 + 16px));
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.88);
   z-index: 900;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(15, 59, 63, 0.96) 0%, rgba(7, 37, 40, 0.98) 100%);
+  border: 1.5px solid var(--royal-gold);
+  border-radius: 30px;
+  padding: 6px 14px;
+  box-shadow: 0 8px 25px rgba(15, 59, 63, 0.45);
+  backdrop-filter: blur(12px);
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.85);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
 }
 
 /* Gracefully visible only AFTER the door opens */
@@ -143,36 +149,46 @@ body.opened .floating-controls,
 .floating-controls.is-visible {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1);
+  transform: translateX(-50%) scale(1);
 }
 
 .control-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0F3B3F 0%, #072528 100%);
+  gap: 5px;
+  background: transparent;
   color: #F7E8C3;
-  border: 1.8px solid var(--royal-gold);
-  box-shadow: 0 6px 20px rgba(15, 59, 63, 0.45);
-  backdrop-filter: blur(10px);
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
-}
-
-.control-btn .control-text {
-  display: none;
-}
-
-.control-btn .control-icon {
-  font-size: 1.2rem;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .control-btn:hover, .control-btn:focus-visible {
-  transform: scale(1.14);
-  background: linear-gradient(135deg, #185E65 0%, #0F3B3F 100%);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.55);
+  transform: scale(1.06);
+  background: rgba(212, 175, 55, 0.18);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+.control-btn .control-icon {
+  font-size: 1.15rem;
+}
+
+.control-pill-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #F7E8C3;
+  white-space: nowrap;
+}
+
+.control-pill-divider {
+  color: rgba(212, 175, 55, 0.5);
+  font-size: 0.85rem;
+  user-select: none;
 }
 
 .bell-icon.ringing {
@@ -545,30 +561,47 @@ body.opened .floating-controls,
 }
 
 /* --------------------------------------------------------------------------
-   5. ARTIFICIAL MARIGOLD TORANS ON BOTH SIDES (Thicker & Equal Minimal Sway)
+   5. MORPANKHI PILLAR STRIPS WITH MARIGOLD TORAN (Royal Palace Border Effect)
    -------------------------------------------------------------------------- */
-.side-toran {
+.morpankhi-toran-pillar {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 46px; /* Thicker, lush presence as requested */
+  width: 44px;
   z-index: 50;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.morpankhi-pillar-left {
+  left: 0;
+  background: linear-gradient(to right, #072225 0%, #0F3B3F 75%, #145258 100%);
+  border-right: 2px solid var(--royal-gold);
+  box-shadow: 2px 0 12px rgba(15, 59, 63, 0.28);
+}
+
+.morpankhi-pillar-right {
+  right: 0;
+  background: linear-gradient(to left, #072225 0%, #0F3B3F 75%, #145258 100%);
+  border-left: 2px solid var(--royal-gold);
+  box-shadow: -2px 0 12px rgba(15, 59, 63, 0.28);
+}
+
+.side-toran-garland {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-image: url('../assets/images/luxury_toran_garland.svg');
   background-repeat: repeat-y;
-  background-size: 46px 198px;
-  filter: drop-shadow(0 6px 14px rgba(15, 59, 63, 0.22));
-  /* Equal, minimal horizontal sway from top to bottom without rotational distortion */
+  background-size: 44px 190px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
   animation: toranSway 7.5s ease-in-out infinite alternate;
 }
 
-.side-toran-left {
-  left: 2px;
-}
-
-.side-toran-right {
-  right: 2px;
-  animation-delay: -3.75s; /* Natural offset breeze */
+.morpankhi-pillar-right .side-toran-garland {
+  animation-delay: -3.75s;
 }
 
 /* Pure translation: completely equal & minimal at top, middle, and bottom */
@@ -586,7 +619,7 @@ body.opened .floating-controls,
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 48px 40px; /* Generous breathing room so thicker torans frame content like a mandap */
+  padding: 0 54px 40px; /* Ample breathing room inside the gold-bordered Morpankhi pillars */
   background-color: var(--bg-royal-ivory);
   overflow-x: clip; /* Cleanly cuts off any horizontal overflow/leak */
   box-sizing: border-box;
@@ -636,6 +669,7 @@ body.opened .floating-controls,
 .bappa-temple-card,
 .family-name-banner,
 .family-card,
+.royal-schedule-tablet,
 .detail-card,
 .aarti-content-card,
 .prasad-card,
@@ -649,6 +683,7 @@ body.opened .floating-controls,
 .bappa-temple-card:hover,
 .family-name-banner:hover,
 .family-card:hover,
+.royal-schedule-tablet:hover,
 .detail-card:hover,
 .aarti-content-card:hover,
 .prasad-card:hover,
@@ -951,11 +986,12 @@ body.opened .floating-controls,
 }
 
 .family-card {
-  flex: 0 0 85%;
+  flex: 0 0 94%;
   max-width: 320px;
   scroll-snap-align: center;
+  margin: 0 auto;
   background: var(--bg-royal-card);
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  border: 1.5px solid var(--royal-gold);
   border-radius: var(--radius-md);
   padding: 16px;
   box-shadow: var(--shadow-royal);
@@ -1014,12 +1050,12 @@ body.opened .floating-controls,
   margin-bottom: 2px;
 }
 
-.member-note {
+.member-relation {
   font-family: var(--font-shloka);
-  font-size: 0.92rem;
-  color: var(--text-royal-muted);
-  line-height: 1.45;
-  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--royal-morpankhi);
+  margin-top: 4px;
 }
 
 .carousel-dots {
@@ -1043,67 +1079,85 @@ body.opened .floating-controls,
 }
 
 /* --------------------------------------------------------------------------
-   9. DETAILS SECTION (शुभ मुहूर्त व वेळ)
+   9. DETAILS SECTION (सोहळा कार्यक्रम पत्रिका - Clean, Focused, Royal Tablet)
    -------------------------------------------------------------------------- */
-.details-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.detail-card {
+.royal-schedule-tablet {
   background: var(--bg-royal-card);
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  border: 1.5px solid var(--royal-gold);
   border-radius: var(--radius-md);
-  padding: 20px 18px;
-  text-align: center;
+  padding: 18px 16px;
   box-shadow: var(--shadow-royal);
   position: relative;
   overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
 
-.detail-card::before {
+.royal-schedule-tablet:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(15, 59, 63, 0.12), 0 0 18px rgba(197, 160, 89, 0.22);
+}
+
+.royal-schedule-tablet::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 3.5px;
   background: linear-gradient(to right, var(--royal-gold), var(--royal-morpankhi), var(--royal-gold));
 }
 
-.detail-icon {
-  font-size: 2rem;
-  margin-bottom: 6px;
+.schedule-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 4px;
 }
 
-.detail-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-royal-muted);
+.schedule-entry-icon {
+  font-size: 1.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
 }
 
-.detail-value {
-  font-family: var(--font-royal);
-  font-size: 1.45rem;
-  color: var(--royal-morpankhi);
-  margin: 4px 0;
+.schedule-entry-body {
+  flex: 1;
 }
 
-.detail-subtext {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--royal-maroon);
-}
-
-.auspicious-tithi {
+.schedule-meta-tag {
   display: inline-block;
-  font-size: 0.82rem;
-  color: var(--text-royal-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--royal-morpankhi);
   background: var(--royal-morpankhi-tint);
+  border: 1px solid rgba(15, 59, 63, 0.2);
   border-radius: 12px;
-  padding: 3px 12px;
-  margin-top: 8px;
+  padding: 1px 10px;
+  margin-bottom: 3px;
+  letter-spacing: 0.5px;
+}
+
+.schedule-main-text {
+  font-family: var(--font-royal);
+  font-size: 1.25rem;
+  color: var(--royal-maroon);
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+
+.schedule-sub-text {
+  font-family: var(--font-shloka);
+  font-size: 0.98rem;
+  color: var(--text-royal-body);
+  line-height: 1.4;
+}
+
+.schedule-entry-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(197, 160, 89, 0.45), transparent);
+  margin: 4px 0;
 }
 
 /* --------------------------------------------------------------------------
