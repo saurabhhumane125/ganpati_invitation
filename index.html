@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="mr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>बाप्पांच्या आगमनाचा सोहळा | सस्नेह आमंत्रण - जोशी परिवार</title>
+  <meta name="description" content="श्री गणेशाय नमः! जोशी परिवारातर्फे बाप्पांच्या आगमनाच्या मंगल सोहळ्याचे सस्नेह आमंत्रण. आपण सहकुटुंब उपस्थित राहून बाप्पांचे आशीर्वाद घ्यावेत, ही नम्र विनंती.">
+  <meta name="theme-color" content="#A91D22">
+  
+  <!-- Open Graph for Instagram, WhatsApp & Social Sharing -->
+  <meta property="og:title" content="बाप्पांच्या आगमनाचा सोहळा | सस्नेह आमंत्रण - जोशी परिवार">
+  <meta property="og:description" content="आपण सहकुटुंब उपस्थित राहून बाप्पांचे आशीर्वाद घ्यावेत, ही नम्र विनंती. दिनांक: १४ सप्टेंबर २०२६, जोशी निवास, दादर, मुंबई.">
+  <meta property="og:image" content="assets/images/bappa_cute.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts for Authentic Devanagari Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet (Cache-busted v=6) -->
+  <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+  <!-- Floating Audio & Utility Controls (Repositioned to bottom-right so it never overlaps navigation) -->
+  <aside class="floating-controls" aria-label="ध्वनी व साधने">
+    <button id="soundToggleBtn" class="control-btn" aria-label="ध्वनी चालू किंवा बंद करा" title="ध्वनी चालू/बंद">
+      <span class="control-icon bell-icon" aria-hidden="true">🔔</span>
+      <span class="control-text" id="soundStatusText">ध्वनी</span>
+    </button>
+    <button id="showerPetalsBtn" class="control-btn" aria-label="पुष्पवृष्टी करा" title="पुष्पवृष्टी">
+      <span class="control-icon" aria-hidden="true">🌸</span>
+      <span class="control-text">पुष्पवृष्टी</span>
+    </button>
+  </aside>
+
+  <!-- Interactive Canvas for Falling Marigold Petals (Runs strictly for 3 seconds on door open or on demand) -->
+  <canvas id="petalCanvas" class="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- ======================================================= -->
+  <!-- 1. HERO / BISECTOR OPENING PAGE (मधोमध दुभंगणारे राजेशाही कवाड) -->
+  <!-- ======================================================= -->
+  <section id="doorOverlay" class="bisector-overlay" aria-label="राजेशाही प्रवेशद्वार">
+    <div class="bisector-scene">
+      
+      <!-- Left Bisector Half -->
+      <div class="bisector-half bisector-left" id="doorLeft">
+        <div class="bisector-content">
+          <div class="royal-zari-frame">
+            <div class="filigree-corner top-left">❦</div>
+            <div class="morpankh-motif left-motif"></div>
+            <div class="filigree-corner bottom-left">❦</div>
+          </div>
+          <div class="bisector-seam-border"></div>
+        </div>
+      </div>
+
+      <!-- Right Bisector Half -->
+      <div class="bisector-half bisector-right" id="doorRight">
+        <div class="bisector-content">
+          <div class="royal-zari-frame">
+            <div class="filigree-corner top-right">❦</div>
+            <div class="morpankh-motif right-motif"></div>
+            <div class="filigree-corner bottom-right">❦</div>
+          </div>
+          <div class="bisector-seam-border"></div>
+        </div>
+      </div>
+
+      <!-- Center Divine Light Rays (Blossoms as Bisector Parts) -->
+      <div class="bisector-divine-glow" id="doorGlow" aria-hidden="true"></div>
+
+      <!-- Center Luxury Motion Seal on the Middle Seam (राजेशाही सुवर्ण मुद्रा) -->
+      <div class="center-knob-wrapper" id="centerKnobWrapper">
+        <button id="openDoorBtn" class="luxury-seal-btn" aria-label="दार उघडा">
+          <!-- Concentric Ambient Glow -->
+          <div class="seal-ambient-glow" aria-hidden="true"></div>
+
+          <!-- Rotating Ornate Filigree Ring -->
+          <div class="seal-rotating-ring" aria-hidden="true">
+            <svg viewBox="0 0 160 160" class="ring-svg">
+              <defs>
+                <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF0C2"/>
+                  <stop offset="50%" stop-color="#D4AF37"/>
+                  <stop offset="100%" stop-color="#8C6718"/>
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="74" fill="none" stroke="url(#ringGold)" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <circle cx="80" cy="80" r="68" fill="none" stroke="url(#ringGold)" stroke-width="1.2"/>
+              <!-- 12 Sacred Lotus Petals Around Rim -->
+              <g stroke="url(#ringGold)" stroke-width="1" fill="none" opacity="0.85">
+                <path d="M80 6 C84 12, 84 18, 80 22 C76 18, 76 12, 80 6 Z"/>
+                <path d="M117 16 C119 22, 116 28, 111 31 C109 25, 112 19, 117 16 Z"/>
+                <path d="M144 43 C142 49, 136 52, 131 49 C133 43, 139 40, 144 43 Z"/>
+                <path d="M154 80 C148 84, 142 84, 138 80 C142 76, 148 76, 154 80 Z"/>
+                <path d="M144 117 C139 119, 133 116, 131 111 C136 109, 142 112, 144 117 Z"/>
+                <path d="M117 144 C112 142, 109 136, 111 131 C116 133, 119 139, 117 144 Z"/>
+                <path d="M80 154 C76 148, 76 142, 80 138 C84 142, 84 148, 80 154 Z"/>
+                <path d="M43 144 C40 139, 43 133, 49 131 C52 136, 49 142, 43 144 Z"/>
+                <path d="M16 117 C19 112, 25 109, 31 111 C28 116, 22 119, 16 117 Z"/>
+                <path d="M6 80 C12 76, 18 76, 22 80 C18 84, 12 84, 6 80 Z"/>
+                <path d="M16 43 C22 40, 28 43, 31 49 C25 52, 19 49, 16 43 Z"/>
+                <path d="M43 16 C49 19, 52 25, 49 31 C43 28, 40 22, 43 16 Z"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Deep Morpankhi Silk Medallion Core -->
+          <div class="seal-core">
+            <div class="seal-shimmer" aria-hidden="true"></div>
+            
+            <!-- Stylized Divine Ganesha & Tilak Motif -->
+            <svg viewBox="0 0 100 100" class="ganesha-emblem-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="emblemGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF8E0"/>
+                  <stop offset="45%" stop-color="#E8CA78"/>
+                  <stop offset="100%" stop-color="#A57E24"/>
+                </linearGradient>
+              </defs>
+              <!-- Sacred Crown (मुकुट) & Red Ruby Drop -->
+              <path d="M50 14 L55 24 L63 22 L57 32 L50 28 L43 32 L37 22 L45 24 Z" fill="url(#emblemGold)"/>
+              <circle cx="50" cy="18" r="1.8" fill="#FF4769"/>
+              <!-- Red Auspicious Tilak -->
+              <path d="M48.5 29 Q50 26 51.5 29 L51 36 L49 36 Z" fill="#FF4769"/>
+              <ellipse cx="50" cy="33" rx="3.5" ry="1.2" fill="url(#emblemGold)"/>
+              <!-- Divine Ganesha Form / Modak & Trunk Flow -->
+              <path d="M50 36 C58 36, 66 42, 66 52 C66 60, 58 64, 52 64 C48 64, 46 62, 48 58 C50 54, 55 54, 55 50 C55 45, 48 42, 44 46 C41 49, 41 55, 43 60 C45 66, 52 70, 58 70 C68 70, 75 60, 75 48 C75 35, 62 28, 50 28 C38 28, 25 36, 25 50 C25 62, 33 72, 45 76" 
+                    fill="none" stroke="url(#emblemGold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Modak in Hand -->
+              <path d="M60 67 C62 64, 66 64, 68 67 C70 70, 68 73, 64 73 C60 73, 58 70, 60 67 Z" fill="url(#emblemGold)"/>
+            </svg>
+
+            <!-- Calligraphic Action Badge -->
+            <span class="seal-action-label">उघडा</span>
+          </div>
+
+          <!-- Subtle Radiating Pulse Wave -->
+          <span class="seal-ripple-wave" aria-hidden="true"></span>
+        </button>
+        <p class="door-hint-text">प्रवेश करण्यासाठी स्पर्श करा</p>
+      </div>
+
+      <!-- Auspicious Base Ticker -->
+      <div class="bisector-base-banner">
+        <span class="step-diya" aria-hidden="true">🪔</span>
+        <span class="banner-mantra">॥ श्री गणेशाय नमः ॥</span>
+        <span class="step-diya" aria-hidden="true">🪔</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- MAIN INVITATION CONTENT (दार उघडल्यानंतर दिसणारे दालन) -->
+  <!-- ======================================================= -->
+  <main id="mainInvitation" class="main-invitation">
+
+    <!-- Artificial Toran on Both Sides along Main Page Length -->
+    <div class="side-toran side-toran-left" aria-hidden="true"></div>
+    <div class="side-toran side-toran-right" aria-hidden="true"></div>
+
+    <!-- Subtle Quick Section Navigation (Marathi Only) -->
+    <nav class="subtle-nav" aria-label="विभाग मार्गक्रमण">
+      <ul class="nav-links">
+        <li><a href="#revealSection">दर्शन</a></li>
+        <li><a href="#familySection">परिवार</a></li>
+        <li><a href="#detailsSection">सोहळा</a></li>
+        <li><a href="#aartiSection">आरती</a></li>
+        <li><a href="#prasadSection">महाप्रसाद</a></li>
+        <li><a href="#locationSection">स्थळ</a></li>
+        <li><a href="#memoriesSection">आठवणी</a></li>
+      </ul>
+    </nav>
+
+    <!-- 2. REVEAL SCREEN (बाप्पांचे दर्शन व आमंत्रण) -->
+    <section id="revealSection" class="invitation-section reveal-section">
+      <div class="section-container">
+        
+        <!-- Mangalacharan & Auspicious Header -->
+        <div class="auspicious-heading-group">
+          <div class="sacred-kalash-icon" aria-hidden="true">🔱</div>
+          <p class="mangalacharan">॥ श्री गणेशाय नमः ॥</p>
+          <h1 class="main-festive-title">बाप्पांच्या आगमनाचा सोहळा</h1>
+          <p class="sub-invitation-badge">सस्नेह आमंत्रण</p>
+          <div class="ornamental-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-flower">❀</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <!-- Adorable Bappa Frame (कमानी-देव्हारा फ्रेम with Seamless Transparent PNG) -->
+        <div class="bappa-temple-card">
+          <div class="temple-halo-glow" aria-hidden="true"></div>
+          <div class="bappa-image-wrapper">
+            <img src="assets/images/bappa_cute.png" 
+                 alt="अत्यंत गोंडस आणि मंगलमूर्ती बाल गणपती बाप्पा" 
+                 class="bappa-portrait"
+                 loading="eager">
+          </div>
+          
+          <div class="bappa-caption">
+            <p class="emotional-note">
+              "आपल्या प्रेमळ उपस्थितीने आमच्या आनंदात भर घालावी."
+            </p>
+          </div>
+        </div>
+
+        <!-- Family Name Banner (राजेशाही अक्षरांमध्ये) -->
+        <div class="family-name-banner">
+          <span class="banner-subtext">निमंत्रक</span>
+          <h2 class="surname-highlight">॥ जोशी परिवार ॥</h2>
+          <p class="welcome-quote">
+            "आमच्या परिवारातर्फे आपले व आपल्या कुटुंबीयांचे मनःपूर्वक स्वागत!"
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 3. FAMILY INTRODUCTION (आमचा परिवार - Horizontal Scrolling) -->
+    <section id="familySection" class="invitation-section family-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">स्नेहबंध</span>
+          <h2 class="section-title">आमचा परिवार</h2>
+          <p class="section-subtitle">
+            बाप्पांच्या आगमनाच्या या मंगल सोहळ्यासाठी<br>
+            आपले सहकुटुंब स्वागत आहे.
+          </p>
+          <div class="scroll-hint">
+            <span class="swipe-arrow" aria-hidden="true">←</span>
+            <span>इतर सदस्यांसाठी पुढे सरकवा</span>
+            <span class="swipe-arrow" aria-hidden="true">→</span>
+          </div>
+        </div>
+
+        <!-- Horizontal Scrolling Family Container -->
+        <div class="family-scroll-container" id="familyScrollContainer">
+          
+          <!-- Family Card 1: ज्येष्ठ आजी-आजोबा -->
+          <article class="family-card">
+            <div class="card-photo-frame">
+              <img src="assets/images/family/grandparents.jpg" 
+                   alt="श्री. विनायक गणेश जोशी आणि सौ. सुनीता विनायक जोशी" 
+                   class="family-photo"
+                   loading="lazy">
+              <div class="frame-gold-border"></div>
+            </div>
+            <div class="card-content">
+              <span class="member-role">ज्येष्ठ सदस्य / आशीर्वाद</span>
+              <h3 class="member-name">श्री. विनायक गणेश जोशी</h3>
+              <h3 class="member-name">सौ. सुनीता विनायक जोशी</h3>
+              <p class="member-note">"बाप्पांचा कृपाशीर्वाद आणि वडीलधाऱ्यांची प्रेमळ माया सदैव पाठीशी राहो."</p>
+            </div>
+          </article>
+
+          <!-- Family Card 2: आई-बाबा (निमंत्रक) -->
+          <article class="family-card">
+            <div class="card-photo-frame">
+              <img src="assets/images/family/parents.jpg" 
+                   alt="श्री. अभिजीत विनायक जोशी आणि सौ. मृणाल अभिजीत जोशी" 
+                   class="family-photo"
+                   loading="lazy">
+              <div class="frame-gold-border"></div>
+            </div>
+            <div class="card-content">
+              <span class="member-role">निमंत्रक</span>
+              <h3 class="member-name">श्री. अभिजीत विनायक जोशी</h3>
+              <h3 class="member-name">सौ. मृणाल अभिजीत जोशी</h3>
+              <p class="member-note">"आपल्या आगमनाने आमच्या घरगुती उत्सवाची शोभा द्विगुणीत होईल."</p>
+            </div>
+          </article>
+
+          <!-- Family Card 3: बाळगोपाळ -->
+          <article class="family-card">
+            <div class="card-photo-frame">
+              <img src="assets/images/family/kids.jpg" 
+                   alt="चि. अथर्व जोशी आणि कु. सई जोशी" 
+                   class="family-photo"
+                   loading="lazy">
+              <div class="frame-gold-border"></div>
+            </div>
+            <div class="card-content">
+              <span class="member-role">लहान बाळगोपाळ</span>
+              <h3 class="member-name">चि. अथर्व अभिजीत जोशी</h3>
+              <h3 class="member-name">कु. सई अभिजीत जोशी</h3>
+              <p class="member-note">"बाप्पांचे स्वागत आणि मोदकांचा आस्वाद घेण्यासाठी आम्ही आतुर आहोत!"</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Scroll Indicator Dots -->
+        <div class="carousel-dots" id="familyDots" aria-hidden="true">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 4. CELEBRATION DETAILS (बाप्पांच्या आगमनाची वेळ व स्थापना) -->
+    <section id="detailsSection" class="invitation-section details-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">शुभ मुहूर्त</span>
+          <h2 class="section-title">बाप्पांच्या आगमनाची वेळ</h2>
+          <p class="section-subtitle">
+            मंगलमय वातावरणात बाप्पांचे आपल्या घरी आगमन होत आहे.
+          </p>
+        </div>
+
+        <div class="details-grid">
+          
+          <!-- Card 1: तारीख -->
+          <div class="detail-card date-card">
+            <div class="detail-icon" aria-hidden="true">📅</div>
+            <span class="detail-label">शुभ दिवस व दिनांक</span>
+            <h3 class="detail-value">१४ सप्टेंबर २०२६</h3>
+            <p class="detail-subtext">भाद्रपद शुक्ल चतुर्थी</p>
+            <span class="auspicious-tithi">सोमवार (गणेश चतुर्थी)</span>
+          </div>
+
+          <!-- Card 2: आगमनाची वेळ व प्रतिष्ठापना -->
+          <div class="detail-card time-card">
+            <div class="detail-icon" aria-hidden="true">⏰</div>
+            <span class="detail-label">गृहप्रवेश व स्थापना</span>
+            <h3 class="detail-value">सकाळी ८:०० वाजता</h3>
+            <p class="detail-subtext">गणपती प्रतिष्ठापना</p>
+            <span class="auspicious-tithi">वेदोक्त मंत्रोच्चार व महापूजा</span>
+          </div>
+
+          <!-- Card 3: सहकुटुंब आमंत्रण -->
+          <div class="detail-card blessing-card">
+            <div class="detail-icon" aria-hidden="true">🌺</div>
+            <span class="detail-label">विशेष विनंती</span>
+            <h3 class="detail-value">सहकुटुंब आगमन</h3>
+            <p class="detail-subtext">बाप्पांचे प्रथम दर्शन व पूजन</p>
+            <span class="auspicious-tithi">आपली उपस्थिती प्रार्थनीय</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 5. AARTI SECTION (आरतीचा मंगल सोहळा व समई) -->
+    <section id="aartiSection" class="invitation-section aarti-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">भक्तिमय वातावरण</span>
+          <h2 class="section-title">आरतीचा मंगल सोहळा</h2>
+        </div>
+
+        <div class="aarti-content-card">
+          <div class="samai-visual-wrapper">
+            <img src="assets/images/brass_samai.jpg" 
+                 alt="पारंपरिक पितळी समई व प्रज्वलित ज्योत" 
+                 class="samai-image"
+                 loading="lazy">
+            <div class="samai-flame-glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="aarti-info">
+            <div class="time-badge">
+              <span class="badge-icon" aria-hidden="true">🪔</span>
+              <span class="badge-text">सकाळी ९:०० वाजता</span>
+            </div>
+            <h3 class="aarti-headline">मंगल आरती व धूपदीप</h3>
+            <p class="aarti-description">
+              बाप्पांच्या आरतीस उपस्थित राहून<br>
+              त्यांच्या चरणी भक्तिभावाने नतमस्तक होऊया.
+            </p>
+            <p class="aarti-ambience">
+              घंटेचा नाद, सुगंधी कापूर आणि एकमुखाने होणारा बाप्पांचा जयघोष!
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 6. PRASAD SECTION (महाप्रसाद व उकडीचे मोदक) -->
+    <section id="prasadSection" class="invitation-section prasad-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">गोडधोड प्रसाद</span>
+          <h2 class="section-title">महाप्रसाद</h2>
+        </div>
+
+        <div class="prasad-card">
+          <div class="modak-visual-wrapper">
+            <img src="assets/images/ukdiche_modak.jpg" 
+                 alt="केळीच्या पानावर शुद्ध साजूक तुपासह गरमागरम उकडीचे मोदक" 
+                 class="modak-image"
+                 loading="lazy">
+          </div>
+
+          <div class="prasad-info">
+            <div class="prasad-badge">
+              <span>आरतीनंतर लगेचच</span>
+            </div>
+            <h3 class="prasad-headline">उकडीचे मोदक व स्नेहभोजन</h3>
+            <p class="prasad-text">
+              आरतीनंतर स्नेहभोजन व महाप्रसादाचा आस्वाद घ्यावा.
+            </p>
+            <div class="prasad-highlight-box">
+              <span class="leaf-icon" aria-hidden="true">🍃</span>
+              <span>केशरयुक्त गरमागरम उकडीचे मोदक आणि शुद्ध साजूक तुपाची धार!</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 7. SPECIAL DEVOTIONAL ELEMENT (बाप्पांच्या चरणी...) -->
+    <section class="invitation-section devotional-section">
+      <div class="section-container">
+        <div class="devotional-box">
+          <span class="sacred-motif" aria-hidden="true">🕉</span>
+          <h2 class="devotional-title">बाप्पांच्या चरणी...</h2>
+          <div class="shloka-content">
+            <p class="shloka-line">सुखकर्ता दुःखहर्ता वार्ता विघ्नाची ।</p>
+            <p class="shloka-line">नुरवी पुरवी प्रेम कृपा जयाची ॥</p>
+            <p class="shloka-line">सर्वांगी सुंदर उटी शेंदुराची ।</p>
+            <p class="shloka-line">कंठी झळके माळ मुक्ताफळांची ॥</p>
+            <p class="shloka-line highlight-verse">जय देव जय देव जय मंगलमूर्ती ।</p>
+            <p class="shloka-line highlight-verse">दर्शनमात्रे मनकामना पुरती ॥</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 8. LOCATION SECTION (बाप्पांचे आगमनस्थळ) -->
+    <section id="locationSection" class="invitation-section location-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">पत्ता व स्थळ</span>
+          <h2 class="section-title">बाप्पांचे आगमनस्थळ</h2>
+        </div>
+
+        <div class="location-card">
+          <!-- Stylized Dadar Map Illustration -->
+          <div class="map-illustration-wrapper">
+            <img src="assets/images/dadar_map.jpg" 
+                 alt="दादर, मुंबई - जोशी निवास नकाशा रेखाटन" 
+                 class="dadar-map-image"
+                 loading="lazy">
+            <div class="map-overlay-badge">
+              <span class="pin-icon" aria-hidden="true">📍</span>
+              <span>जोशी निवास, दादर</span>
+            </div>
+          </div>
+
+          <!-- Venue Address Details -->
+          <div class="location-details">
+            <h3 class="residence-name">॥ जोशी निवास ॥</h3>
+            <address class="full-address">
+              सदनिका क्र. ४०२, 'मोरया प्रासाद',<br>
+              रानडे रोड, शिवाजी पार्कजवळ,<br>
+              दादर (पश्चिम), मुंबई - ४०००२८
+            </address>
+            <p class="location-note">
+              आपली आतुरतेने वाट पाहत आहोत.
+            </p>
+            
+            <!-- Prominent Marathi CTA Button to Open Google Maps -->
+            <a href="https://maps.google.com/?q=Dadar+West+Mumbai+400028" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-primary map-btn"
+               id="openMapBtn">
+              <span class="btn-icon" aria-hidden="true">🗺</span>
+              <span class="btn-text">मार्ग पाहा (गूगल मॅप्स)</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 9. PHOTO / MEMORY GALLERY (गेल्या वर्षांच्या काही आठवणी) -->
+    <section id="memoriesSection" class="invitation-section memories-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">गोड आठवणी</span>
+          <h2 class="section-title">गेल्या वर्षांच्या काही आठवणी</h2>
+          <p class="section-subtitle">
+            बाप्पांच्या सेवेतील आणि घरातील आनंदाचे काही क्षण
+          </p>
+        </div>
+
+        <!-- Staggered Memory Layout -->
+        <div class="memories-grid">
+          
+          <figure class="memory-card memory-card-1">
+            <div class="memory-img-wrapper">
+              <img src="assets/images/memories/memory_aarti.jpg" 
+                   alt="घरातील भक्तिमय कौटुंबिक आरती" 
+                   class="memory-image"
+                   loading="lazy">
+            </div>
+            <figcaption class="memory-caption">
+              <span class="caption-title">भक्तिमय आरती</span>
+              <span class="caption-desc">संपूर्ण परिवाराची एकमुखी प्रार्थना</span>
+            </figcaption>
+          </figure>
+
+          <figure class="memory-card memory-card-2">
+            <div class="memory-img-wrapper">
+              <img src="assets/images/memories/memory_decor.jpg" 
+                   alt="पारंपरिक मखर व फुलांची आरास" 
+                   class="memory-image"
+                   loading="lazy">
+            </div>
+            <figcaption class="memory-caption">
+              <span class="caption-title">मखर व आरास</span>
+              <span class="caption-desc">झेंडूच्या फुलांनी सजलेला देव्हारा</span>
+            </figcaption>
+          </figure>
+
+          <figure class="memory-card memory-card-3">
+            <div class="memory-img-wrapper">
+              <img src="assets/images/memories/memory_modak.jpg" 
+                   alt="परिवारासह उकडीचे मोदक बनवतानाचे क्षण" 
+                   class="memory-image"
+                   loading="lazy">
+            </div>
+            <figcaption class="memory-caption">
+              <span class="caption-title">मोदकांची तयारी</span>
+              <span class="caption-desc">आजी आणि नातवंडांचा गोड सहभाग</span>
+            </figcaption>
+          </figure>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toran Section Separator -->
+    <div class="section-separator" aria-hidden="true">
+      <div class="separator-toran"></div>
+    </div>
+
+    <!-- 10. FINAL INVITATION SECTION (सस्नेह निमंत्रण व आशीर्वाद) -->
+    <section class="invitation-section final-invitation-section">
+      <div class="section-container">
+        
+        <div class="final-card">
+          <div class="final-top-symbol" aria-hidden="true">🪔</div>
+          
+          <h2 class="final-heading">
+            आपली उपस्थितीच आमच्यासाठी आशीर्वाद आहे.
+          </h2>
+          
+          <p class="final-body-text">
+            आपण सहकुटुंब उपस्थित राहून<br>
+            बाप्पांचे आशीर्वाद घ्यावेत,<br>
+            ही नम्र विनंती.
+          </p>
+
+          <div class="final-signature">
+            <p class="sign-label">सस्नेह,</p>
+            <p class="sign-family">जोशी परिवार</p>
+          </div>
+
+          <!-- Bottom Mini Bappa Motif -->
+          <div class="final-bappa-motif">
+            <span class="modak-glyph" aria-hidden="true">⚜</span>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="action-buttons-group">
+            
+            <button id="petalShowerBtn" class="btn-primary action-btn">
+              <span class="btn-icon" aria-hidden="true">🌸</span>
+              <span class="btn-text">पुष्पवृष्टी करा</span>
+            </button>
+
+            <button id="addToCalendarBtn" class="btn-secondary action-btn">
+              <span class="btn-icon" aria-hidden="true">📅</span>
+              <span class="btn-text">कॅलेंडरमध्ये जोडा</span>
+            </button>
+
+            <button id="shareInviteBtn" class="btn-secondary action-btn">
+              <span class="btn-icon" aria-hidden="true">📲</span>
+              <span class="btn-text">निमंत्रण शेअर करा</span>
+            </button>
+
+            <button id="replayDoorBtn" class="btn-tertiary action-btn">
+              <span class="btn-icon" aria-hidden="true">🚪</span>
+              <span class="btn-text">पुन्हा दार उघडा</span>
+            </button>
+
+          </div>
+
+          <!-- Toast Notification for Actions -->
+          <div id="toastNotification" class="toast-notification" role="status" aria-live="polite"></div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 11. FINAL SACRED FOOTER (पारंपरिक सांगता) -->
+    <footer class="sacred-footer">
+      <div class="footer-toran" aria-hidden="true"></div>
+      <div class="footer-content">
+        <div class="footer-diyas" aria-hidden="true">
+          <span>🪔</span>
+          <span>🌺</span>
+          <span>🪔</span>
+        </div>
+        <p class="footer-ghosh">॥ गणपती बाप्पा मोरया! मंगलमूर्ती मोरया! ॥</p>
+        <p class="footer-subghosh">पुढच्या वर्षी लवकर या!</p>
+        <p class="footer-blessing">|| ॐ गं गणपतये नमः ||</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- JavaScript (Cache-busted v=6) -->
+  <script src="js/script.js?v=6"></script>
+</body>
+</html>

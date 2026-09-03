@@ -1,0 +1,1655 @@
+/* ==========================================================================
+   महाराष्ट्रीयन घरगुती बाप्पा आमंत्रण (राजेशाही डिजिटल निमंत्रण पत्रिका)
+   ROYAL MORPANKHI & MAROON GANPATI INVITATION
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ROYAL PALETTE (मोरपंखी + पैठणी मरून + अँटिक गोल्ड)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Unified Royal Color Palette */
+  --royal-morpankhi: #0F3B3F;        /* Royal Morpankhi Teal */
+  --royal-morpankhi-dark: #072225;   /* Deep Sanctum Morpankhi */
+  --royal-morpankhi-light: #16565C;  /* Lighter Teal Accent */
+  --royal-morpankhi-tint: #E8F4F5;   /* Soft Morpankhi Wash */
+  
+  --royal-maroon: #540915;           /* Rich Paithani Maroon */
+  --royal-wine: #38040D;             /* Deep Wine Accent */
+  --royal-maroon-tint: #F8ECEE;      /* Soft Maroon Wash */
+  
+  --royal-gold: #C5A059;             /* Antique Champagne Gold */
+  --royal-gold-foil: #E8CA78;        /* Bright Gold Foil */
+  --royal-gold-light: #F7E8C3;       /* Delicate Pale Gold */
+  --royal-gold-dark: #8E6D27;        /* Deep Brass Shade */
+  
+  /* Canvas & Stationery Silk Parchment */
+  --bg-royal-ivory: #FAF8F3;
+  --bg-royal-cream: #FFFDF9;
+  --bg-royal-card: #FFFFFF;
+  --bg-royal-subtle: #F5EFE6;
+  
+  /* Cultural Accents */
+  --accent-marigold-orange: #E67E22;
+  --accent-marigold-yellow: #F1C40F;
+  --accent-mango-leaf: #245B41;
+  --accent-ruby: #C00C2A;
+  
+  /* Editorial Typography Colors */
+  --text-royal-heading: #38040D;
+  --text-royal-body: #261612;
+  --text-royal-muted: #6B5750;
+  --text-royal-gold: #946F21;
+  
+  /* Fonts */
+  --font-festive: 'Rozha One', serif;
+  --font-royal: 'Yatra One', cursive;
+  --font-shloka: 'Tiro Devanagari Marathi', serif;
+  --font-body: 'Mukta', sans-serif;
+  
+  /* Shadows */
+  --shadow-royal: 0 10px 32px rgba(15, 59, 63, 0.08);
+  --shadow-card: 0 4px 20px rgba(56, 4, 13, 0.05);
+  --shadow-gold: 0 6px 20px rgba(197, 160, 89, 0.25);
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 50px;
+  --radius-arch: 140px 140px 16px 16px;
+  
+  /* Layout */
+  --container-max: 480px;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: #E8E1D5;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-royal-body);
+  background-color: var(--bg-royal-ivory);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    max-width: 520px;
+    box-shadow: 0 0 70px rgba(15, 59, 63, 0.15);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. FLOATING UTILITY CONTROLS (Compact Circular Buttons)
+   -------------------------------------------------------------------------- */
+.floating-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 14px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 253, 249, 0.96);
+  color: var(--royal-morpankhi);
+  border: 1.5px solid var(--royal-gold);
+  box-shadow: 0 4px 16px rgba(15, 59, 63, 0.18);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.control-btn .control-text {
+  display: none;
+}
+
+.control-btn .control-icon {
+  font-size: 1.25rem;
+}
+
+.control-btn:hover, .control-btn:focus-visible {
+  transform: scale(1.1);
+  background: #FFF9EF;
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+}
+
+.bell-icon.ringing {
+  animation: bellSway 0.6s ease infinite alternate;
+}
+
+@keyframes bellSway {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+/* Falling Marigold Petals Canvas (Controlled via JS for 3 sec duration) */
+.petal-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 850;
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO / BISECTOR OPENING PAGE (मधोमध दुभंगणारे राजेशाही कवाड)
+   -------------------------------------------------------------------------- */
+.bisector-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--royal-morpankhi-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s ease 0.9s, visibility 0.8s ease 0.9s;
+}
+
+.bisector-overlay.doors-opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.bisector-scene {
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  position: relative;
+  overflow: hidden;
+  background: var(--royal-morpankhi-dark);
+  display: flex;
+}
+
+/* Symmetrical Bisector Left and Right Halves */
+.bisector-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+.bisector-left {
+  left: 0;
+  background: linear-gradient(135deg, #134B50 0%, #0F3B3F 60%, #072225 100%);
+  border-right: 2px solid var(--royal-gold);
+}
+
+.bisector-right {
+  right: 0;
+  background: linear-gradient(225deg, #134B50 0%, #0F3B3F 60%, #072225 100%);
+  border-left: 2px solid var(--royal-gold);
+}
+
+/* Opened Bisector State: Slides Cleanly to Left & Right */
+.doors-opened .bisector-left {
+  transform: translateX(-100%);
+}
+
+.doors-opened .bisector-right {
+  transform: translateX(100%);
+}
+
+.bisector-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 14px;
+}
+
+.royal-zari-frame {
+  width: 100%;
+  height: 84%;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: var(--radius-sm);
+  position: relative;
+  background: radial-gradient(circle at center, rgba(197, 160, 89, 0.06) 0%, transparent 70%);
+}
+
+.filigree-corner {
+  position: absolute;
+  color: var(--royal-gold);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.top-left { top: 6px; left: 8px; }
+.top-right { top: 6px; right: 8px; transform: scaleX(-1); }
+.bottom-left { bottom: 6px; left: 8px; }
+.bottom-right { bottom: 6px; right: 8px; transform: scaleX(-1); }
+
+/* Morpankh Motif Background on Halves */
+.morpankh-motif {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 100px;
+  opacity: 0.15;
+  background: radial-gradient(ellipse at center, var(--royal-gold) 0%, transparent 70%);
+  transform: translateY(-50%);
+}
+
+.left-motif { right: 10px; }
+.right-motif { left: 10px; }
+
+/* Center Divine Glow in the Bisector Seam */
+.bisector-divine-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(247, 232, 195, 0.95) 0%, rgba(212, 175, 55, 0.5) 45%, transparent 75%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.8s ease, transform 1.5s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.doors-opened .bisector-divine-glow {
+  opacity: 1;
+  transform: scale(1.6);
+}
+
+/* Center Ganpati Mukut Themed Round Button */
+.center-knob-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Center Photorealistic 24k Gold Ganpati Embossed Medallion Seal */
+.center-knob-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.doors-opened .center-knob-wrapper {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  pointer-events: none;
+}
+
+.luxury-seal-btn {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+}
+
+.luxury-seal-btn:hover, .luxury-seal-btn:focus-visible {
+  transform: scale(1.08);
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.65));
+}
+
+.luxury-seal-btn:active {
+  transform: scale(0.95);
+}
+
+/* Ambient Radial Glow */
+.seal-ambient-glow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 202, 120, 0.5) 0%, rgba(212, 175, 55, 0.2) 55%, transparent 70%);
+  pointer-events: none;
+  animation: ambientHalo 3s ease-in-out infinite alternate;
+}
+
+@keyframes ambientHalo {
+  0% { transform: scale(0.94); opacity: 0.6; }
+  100% { transform: scale(1.12); opacity: 1; }
+}
+
+/* Slow Rotating Ornate Filigree Ring */
+.seal-rotating-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  animation: slowSpinRing 28s linear infinite;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slowSpinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Deep Morpankhi Silk Core Medallion */
+.seal-core {
+  position: relative;
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #16565C 0%, #0F3B3F 55%, #072225 100%);
+  border: 2px solid #E8CA78;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.85),
+    0 0 0 2px var(--royal-wine),
+    0 6px 18px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* Diagonal Sheen Shimmer */
+.seal-shimmer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg, 
+    transparent 35%, 
+    rgba(255, 240, 194, 0.35) 50%, 
+    transparent 65%
+  );
+  animation: sheenPass 3.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes sheenPass {
+  0% { transform: translate(-100%, -100%) rotate(45deg); }
+  45%, 100% { transform: translate(100%, 100%) rotate(45deg); }
+}
+
+/* Stylized Ganesha Line Art & Tilak */
+.ganesha-emblem-svg {
+  width: 66px;
+  height: 66px;
+  margin-top: -6px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* Calligraphic Action Badge */
+.seal-action-label {
+  position: absolute;
+  bottom: 8px;
+  font-family: var(--font-royal);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFDF9;
+  background: linear-gradient(135deg, var(--royal-maroon) 0%, var(--royal-wine) 100%);
+  border: 1px solid var(--royal-gold);
+  border-radius: 12px;
+  padding: 1px 12px;
+  line-height: 1.35;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+/* Radiating Pulse Wave */
+.seal-ripple-wave {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.8);
+  animation: rippleWave 2.4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rippleWave {
+  0% { transform: scale(0.92); opacity: 0.9; }
+  100% { transform: scale(1.36); opacity: 0; }
+}
+
+.door-hint-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #F7E8C3;
+  background: rgba(7, 34, 37, 0.92);
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+/* Auspicious Base Banner */
+.bisector-base-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(to bottom, #072225, #041416);
+  border-top: 1.5px solid var(--royal-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 30;
+}
+
+.banner-mantra {
+  font-family: var(--font-royal);
+  font-size: 0.95rem;
+  color: var(--royal-gold-light);
+  letter-spacing: 1px;
+}
+
+.step-diya {
+  font-size: 1.35rem;
+  animation: diyaFlicker 2.5s infinite alternate;
+}
+
+@keyframes diyaFlicker {
+  0% { transform: scale(1); filter: drop-shadow(0 0 6px #F39C12); }
+  50% { transform: scale(1.06); filter: drop-shadow(0 0 12px #E67E22); }
+  100% { transform: scale(0.98); filter: drop-shadow(0 0 5px #F1C40F); }
+}
+
+/* --------------------------------------------------------------------------
+   5. ARTIFICIAL MARIGOLD TORANS ON BOTH SIDES (Stylized & Animated)
+   -------------------------------------------------------------------------- */
+.side-toran {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url('../assets/images/luxury_toran_garland.svg');
+  background-repeat: repeat-y;
+  background-size: 40px 172px;
+  filter: drop-shadow(0 6px 14px rgba(15, 59, 63, 0.2));
+  animation: toranSway 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+.side-toran-left {
+  left: 2px;
+  transform-origin: top left;
+}
+
+.side-toran-right {
+  right: 2px;
+  transform-origin: top right;
+  animation-delay: -2.75s; /* Natural offset breeze sway - preserved perfectly */
+}
+
+@keyframes toranSway {
+  0% { transform: rotate(0deg) translateX(0); }
+  50% { transform: rotate(0.7deg) translateX(1px); }
+  100% { transform: rotate(-0.7deg) translateX(-1px); }
+}
+
+/* --------------------------------------------------------------------------
+   6. MAIN INVITATION PAGE LAYOUT & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+.main-invitation {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 44px 50px; /* Generous breathing room so real torans frame content like a mandap */
+  background-color: var(--bg-royal-ivory);
+}
+
+/* Subtle Centered Navigation Bar */
+.subtle-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 800;
+  margin: 10px 0 18px;
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 30px;
+  padding: 6px 8px;
+  box-shadow: 0 4px 20px rgba(15, 59, 63, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--royal-morpankhi);
+  padding: 4px 8px;
+  border-radius: 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a:focus-visible {
+  background: var(--royal-morpankhi);
+  color: #FFFDF9;
+}
+
+/* --------------------------------------------------------------------------
+   7. INTERACTIVE MICRO-ANIMATIONS & SECTION COMMON STYLES
+   -------------------------------------------------------------------------- */
+/* Universal Interactive Card Hover & Lift */
+.bappa-temple-card,
+.family-name-banner,
+.family-card,
+.detail-card,
+.aarti-content-card,
+.prasad-card,
+.devotional-box,
+.location-card,
+.memory-card,
+.final-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.bappa-temple-card:hover,
+.family-name-banner:hover,
+.family-card:hover,
+.detail-card:hover,
+.aarti-content-card:hover,
+.prasad-card:hover,
+.devotional-box:hover,
+.location-card:hover,
+.memory-card:hover,
+.final-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(15, 59, 63, 0.12), 0 0 18px rgba(197, 160, 89, 0.22);
+  border-color: rgba(197, 160, 89, 0.75);
+}
+
+/* Floating Sacred Icons Micro-Animation */
+.sacred-kalash-icon,
+.detail-icon,
+.sacred-motif,
+.final-top-symbol {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bappa-temple-card:hover .sacred-kalash-icon,
+.detail-card:hover .detail-icon,
+.devotional-box:hover .sacred-motif,
+.final-card:hover .final-top-symbol {
+  transform: scale(1.2) translateY(-3px);
+}
+
+.invitation-section {
+  padding: 24px 0;
+  position: relative;
+}
+
+.section-container {
+  width: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--royal-morpankhi);
+  background: var(--royal-morpankhi-tint);
+  border: 1px solid rgba(15, 59, 63, 0.2);
+  padding: 2px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-family: var(--font-festive);
+  font-size: 1.85rem;
+  color: var(--royal-maroon);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-family: var(--font-shloka);
+  font-size: 1.05rem;
+  color: var(--text-royal-muted);
+  line-height: 1.55;
+}
+
+/* Section Separators */
+.section-separator {
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.separator-toran {
+  width: 70%;
+  height: 12px;
+  background: radial-gradient(circle at 6px 6px, var(--royal-gold) 4px, transparent 5px) repeat-x;
+  background-size: 14px 12px;
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   7. REVEAL SECTION & ADORABLE BAPPA PRESENTATION
+   -------------------------------------------------------------------------- */
+.reveal-section {
+  padding-top: 10px;
+}
+
+.auspicious-heading-group {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sacred-kalash-icon {
+  font-size: 1.6rem;
+  color: var(--royal-gold);
+  margin-bottom: 4px;
+}
+
+.mangalacharan {
+  font-family: var(--font-royal);
+  font-size: 1.25rem;
+  color: var(--royal-maroon);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.main-festive-title {
+  font-family: var(--font-festive);
+  font-size: 2.15rem;
+  color: var(--royal-maroon);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.sub-invitation-badge {
+  display: inline-block;
+  font-family: var(--font-royal);
+  font-size: 1.15rem;
+  color: var(--royal-morpankhi);
+  background: #FFFDF9;
+  border: 1px solid var(--royal-gold);
+  border-radius: 20px;
+  padding: 3px 18px;
+  margin-top: 4px;
+}
+
+.ornamental-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.divider-line {
+  height: 1px;
+  width: 45px;
+  background: linear-gradient(to right, transparent, var(--royal-gold), transparent);
+}
+
+.divider-flower {
+  color: var(--royal-gold);
+  font-size: 0.95rem;
+}
+
+/* Adorable Bappa Presentation Card (Seamless Isolated PNG) */
+.bappa-temple-card {
+  background: var(--bg-royal-card);
+  border: 1px solid var(--royal-gold);
+  border-radius: var(--radius-arch);
+  padding: 24px 20px 16px;
+  box-shadow: var(--shadow-royal);
+  margin-bottom: 24px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.temple-halo-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 228, 188, 0.75) 0%, rgba(212, 175, 55, 0.22) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+  animation: divineHaloBreathe 4s ease-in-out infinite alternate;
+}
+
+@keyframes divineHaloBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.94); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+.bappa-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.bappa-portrait {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(15, 59, 63, 0.2));
+  transition: transform 0.4s ease;
+}
+
+.bappa-temple-card:hover .bappa-portrait {
+  transform: scale(1.03);
+}
+
+.bappa-caption {
+  position: relative;
+  z-index: 2;
+  padding: 16px 10px 4px;
+}
+
+.emotional-note {
+  font-family: var(--font-shloka);
+  font-size: 1.15rem;
+  color: var(--royal-maroon);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Family Name Banner */
+.family-name-banner {
+  text-align: center;
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.banner-subtext {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-royal-muted);
+  letter-spacing: 1px;
+}
+
+.surname-highlight {
+  font-family: var(--font-royal);
+  font-size: 1.95rem;
+  color: var(--royal-maroon);
+  margin: 4px 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.welcome-quote {
+  font-size: 0.95rem;
+  color: var(--text-royal-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. FAMILY SECTION (आमचा परिवार - Horizontal Scrolling)
+   -------------------------------------------------------------------------- */
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--royal-morpankhi);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.swipe-arrow {
+  animation: arrowBounce 1.5s infinite alternate;
+}
+
+@keyframes arrowBounce {
+  0% { transform: translateX(-3px); }
+  100% { transform: translateX(3px); }
+}
+
+.family-scroll-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 4px 18px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.family-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.family-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.family-card {
+  flex: 0 0 85%;
+  max-width: 320px;
+  scroll-snap-align: center;
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-royal);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.family-card:hover {
+  transform: translateY(-3px);
+}
+
+.card-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.family-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame-gold-border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.member-role {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--royal-morpankhi);
+  background: var(--royal-morpankhi-tint);
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+
+.member-name {
+  font-family: var(--font-royal);
+  font-size: 1.15rem;
+  color: var(--royal-maroon);
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+
+.member-note {
+  font-family: var(--font-shloka);
+  font-size: 0.92rem;
+  color: var(--text-royal-muted);
+  line-height: 1.45;
+  margin-top: 8px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C4D7D8;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  background: var(--royal-morpankhi);
+  transform: scale(1.3);
+}
+
+/* --------------------------------------------------------------------------
+   9. DETAILS SECTION (शुभ मुहूर्त व वेळ)
+   -------------------------------------------------------------------------- */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.detail-card {
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-royal);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--royal-gold), var(--royal-morpankhi), var(--royal-gold));
+}
+
+.detail-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.detail-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-royal-muted);
+}
+
+.detail-value {
+  font-family: var(--font-royal);
+  font-size: 1.45rem;
+  color: var(--royal-morpankhi);
+  margin: 4px 0;
+}
+
+.detail-subtext {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--royal-maroon);
+}
+
+.auspicious-tithi {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--text-royal-muted);
+  background: var(--royal-morpankhi-tint);
+  border-radius: 12px;
+  padding: 3px 12px;
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   10. AARTI SECTION (आरतीचा सोहळा व समई)
+   -------------------------------------------------------------------------- */
+.aarti-content-card {
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-royal);
+}
+
+.samai-visual-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.samai-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.samai-flame-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+  animation: flameFlicker 2s infinite alternate;
+  pointer-events: none;
+}
+
+.aarti-info {
+  text-align: center;
+}
+
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFDF9;
+  border: 1px solid var(--royal-gold);
+  color: var(--royal-morpankhi);
+  font-weight: 700;
+  font-size: 1.02rem;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.aarti-headline {
+  font-family: var(--font-royal);
+  font-size: 1.45rem;
+  color: var(--royal-maroon);
+  margin-bottom: 6px;
+}
+
+.aarti-description {
+  font-family: var(--font-shloka);
+  font-size: 1.05rem;
+  color: var(--text-royal-body);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.aarti-ambience {
+  font-size: 0.88rem;
+  color: var(--text-royal-muted);
+}
+
+/* --------------------------------------------------------------------------
+   11. PRASAD SECTION (महाप्रसाद व मोदक)
+   -------------------------------------------------------------------------- */
+.prasad-card {
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-royal);
+}
+
+.modak-visual-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.modak-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prasad-info {
+  text-align: center;
+}
+
+.prasad-badge {
+  display: inline-block;
+  background: var(--royal-morpankhi-tint);
+  color: var(--royal-morpankhi);
+  border: 1px solid rgba(15, 59, 63, 0.25);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 3px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.prasad-headline {
+  font-family: var(--font-royal);
+  font-size: 1.45rem;
+  color: var(--royal-maroon);
+  margin-bottom: 6px;
+}
+
+.prasad-text {
+  font-family: var(--font-shloka);
+  font-size: 1.05rem;
+  color: var(--text-royal-body);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.prasad-highlight-box {
+  background: #FFFDF7;
+  border: 1px dashed var(--royal-gold);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  color: #7A5500;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   12. DEVOTIONAL SECTION (बाप्पांच्या चरणी...)
+   -------------------------------------------------------------------------- */
+.devotional-box {
+  background: var(--bg-royal-card);
+  border: 1.5px solid var(--royal-gold);
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-royal);
+  position: relative;
+}
+
+.sacred-motif {
+  font-size: 2.2rem;
+  color: var(--royal-morpankhi);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.devotional-title {
+  font-family: var(--font-festive);
+  font-size: 1.55rem;
+  color: var(--royal-maroon);
+  margin-bottom: 14px;
+}
+
+.shloka-content {
+  font-family: var(--font-shloka);
+  font-size: 1.05rem;
+  color: var(--text-royal-body);
+  line-height: 1.85;
+}
+
+.shloka-line {
+  margin-bottom: 2px;
+}
+
+.highlight-verse {
+  font-weight: 700;
+  color: var(--royal-morpankhi);
+}
+
+/* --------------------------------------------------------------------------
+   13. LOCATION SECTION (बाप्पांचे आगमनस्थळ)
+   -------------------------------------------------------------------------- */
+.location-card {
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-royal);
+}
+
+.map-illustration-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  margin-bottom: 16px;
+}
+
+.dadar-map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-overlay-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255, 253, 249, 0.95);
+  color: var(--royal-morpankhi);
+  border: 1px solid var(--royal-gold);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.location-details {
+  text-align: center;
+}
+
+.residence-name {
+  font-family: var(--font-royal);
+  font-size: 1.45rem;
+  color: var(--royal-maroon);
+  margin-bottom: 6px;
+}
+
+.full-address {
+  font-style: normal;
+  font-size: 0.98rem;
+  color: var(--text-royal-muted);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.location-note {
+  font-family: var(--font-shloka);
+  font-size: 1.05rem;
+  color: var(--royal-morpankhi);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Primary Button Styling with Interactive Light Gleam */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--royal-morpankhi) 0%, var(--royal-morpankhi-dark) 100%);
+  color: #FFFDF9;
+  border: 1px solid var(--royal-gold);
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(15, 59, 63, 0.28);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  width: 100%;
+  max-width: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(25deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  left: 140%;
+  transition: left 0.75s ease-in-out;
+}
+
+.btn-primary:hover, .btn-primary:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15, 59, 63, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* --------------------------------------------------------------------------
+   14. MEMORIES SECTION (गेल्या वर्षांच्या आठवणी)
+   -------------------------------------------------------------------------- */
+.memories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.memory-card {
+  background: var(--bg-royal-card);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: var(--shadow-royal);
+  transition: transform 0.3s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-3px);
+}
+
+.memory-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.memory-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.memory-card:hover .memory-image {
+  transform: scale(1.03);
+}
+
+.memory-caption {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.caption-title {
+  font-family: var(--font-royal);
+  font-size: 1.15rem;
+  color: var(--royal-maroon);
+}
+
+.caption-desc {
+  font-size: 0.88rem;
+  color: var(--text-royal-muted);
+}
+
+/* --------------------------------------------------------------------------
+   15. FINAL INVITATION SECTION & INTERACTIVE BUTTONS
+   -------------------------------------------------------------------------- */
+.final-card {
+  background: var(--bg-royal-card);
+  border: 1.5px solid var(--royal-gold);
+  border-radius: var(--radius-md);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-royal);
+  position: relative;
+}
+
+.final-top-symbol {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  animation: diyaFlicker 2.5s infinite alternate;
+}
+
+.final-heading {
+  font-family: var(--font-festive);
+  font-size: 1.65rem;
+  color: var(--royal-maroon);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.final-body-text {
+  font-family: var(--font-shloka);
+  font-size: 1.15rem;
+  color: var(--text-royal-body);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.final-signature {
+  margin: 16px 0;
+}
+
+.sign-label {
+  font-size: 0.95rem;
+  color: var(--text-royal-muted);
+}
+
+.sign-family {
+  font-family: var(--font-royal);
+  font-size: 1.85rem;
+  color: var(--royal-maroon);
+  font-weight: 700;
+}
+
+.final-bappa-motif {
+  color: var(--royal-gold);
+  font-size: 1.5rem;
+  margin: 10px 0 18px;
+}
+
+/* Action Buttons Grid */
+.action-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.action-btn {
+  width: 100%;
+  max-width: 290px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-royal-card);
+  color: var(--royal-maroon);
+  border: 1px solid var(--royal-gold);
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.25), transparent);
+  transform: rotate(25deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-secondary:hover::after {
+  left: 140%;
+  transition: left 0.75s ease-in-out;
+}
+
+.btn-secondary:hover, .btn-secondary:focus-visible {
+  transform: translateY(-3px);
+  background: #FFF9EF;
+  box-shadow: 0 8px 22px rgba(197, 160, 89, 0.3);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-royal-muted);
+  border: 1px dashed rgba(197, 160, 89, 0.6);
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.btn-tertiary:hover {
+  color: var(--royal-morpankhi);
+  background: var(--royal-morpankhi-tint);
+}
+
+/* Toast Notification */
+.toast-notification {
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: var(--royal-morpankhi-dark);
+  color: #FFFDF9;
+  border: 1px solid var(--royal-gold);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   16. SACRED FOOTER (पारंपरिक सांगता)
+   -------------------------------------------------------------------------- */
+.sacred-footer {
+  background: linear-gradient(to bottom, var(--bg-royal-ivory), #EAE1D1);
+  padding: 24px 16px 36px;
+  text-align: center;
+  border-top: 1.5px solid var(--royal-gold);
+  margin-top: 20px;
+}
+
+.footer-toran {
+  height: 10px;
+  background: radial-gradient(circle at 5px 5px, var(--royal-gold) 3px, transparent 4px) repeat-x;
+  background-size: 10px 10px;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.footer-diyas {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-ghosh {
+  font-family: var(--font-royal);
+  font-size: 1.35rem;
+  color: var(--royal-maroon);
+  margin-bottom: 4px;
+}
+
+.footer-subghosh {
+  font-family: var(--font-festive);
+  font-size: 1.15rem;
+  color: var(--royal-morpankhi);
+  margin-bottom: 8px;
+}
+
+.footer-blessing {
+  font-family: var(--font-shloka);
+  font-size: 0.95rem;
+  color: var(--text-royal-muted);
+  letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   17. ACCESSIBILITY & REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
