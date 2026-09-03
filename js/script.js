@@ -154,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger door opening CSS animation
     doorOverlay.classList.add('doors-opened');
 
+    // Make floating controls visible inside the website container
+    const floatingControls = document.getElementById('floatingControls');
+    if (floatingControls) {
+      floatingControls.classList.add('is-visible');
+    }
+
     // Make revealSection immediately visible without delay
     const revealSection = document.getElementById('revealSection');
     if (revealSection) {
@@ -174,6 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function replayDoor() {
     doorOverlay.classList.remove('doors-opened');
+    const floatingControls = document.getElementById('floatingControls');
+    if (floatingControls) {
+      floatingControls.classList.remove('is-visible');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     showToast('दार पुन्हा बंद झाले आहे. उघडण्यासाठी स्पर्श करा!');
   }

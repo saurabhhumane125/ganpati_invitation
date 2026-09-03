@@ -76,14 +76,17 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   background-color: #E8E1D5;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--text-royal-body);
   background-color: var(--bg-royal-ivory);
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   position: relative;
   min-height: 100vh;
   margin: 0 auto;
@@ -115,16 +118,32 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   3. FLOATING UTILITY CONTROLS (Compact Circular Buttons)
+   3. FLOATING UTILITY CONTROLS (Royal Morpankhi & Gold - Strictly Inside Container)
    -------------------------------------------------------------------------- */
 .floating-controls {
   position: fixed;
-  bottom: 20px;
-  right: 14px;
+  bottom: 24px;
+  /* Strictly pinned to the right edge of the website container on desktop & mobile */
+  right: max(16px, calc((100vw - var(--container-max)) / 2 + 16px));
   z-index: 900;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+}
+
+/* Gracefully visible only AFTER the door opens */
+.doors-opened ~ #mainInvitation .floating-controls,
+.doors-opened ~ main .floating-controls,
+.doors-opened .floating-controls,
+body.opened .floating-controls,
+.floating-controls.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }
 
 .control-btn {
@@ -134,12 +153,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 253, 249, 0.96);
-  color: var(--royal-morpankhi);
-  border: 1.5px solid var(--royal-gold);
-  box-shadow: 0 4px 16px rgba(15, 59, 63, 0.18);
+  background: linear-gradient(135deg, #0F3B3F 0%, #072528 100%);
+  color: #F7E8C3;
+  border: 1.8px solid var(--royal-gold);
+  box-shadow: 0 6px 20px rgba(15, 59, 63, 0.45);
   backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
 }
 
 .control-btn .control-text {
@@ -147,13 +166,13 @@ a {
 }
 
 .control-btn .control-icon {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .control-btn:hover, .control-btn:focus-visible {
-  transform: scale(1.1);
-  background: #FFF9EF;
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  transform: scale(1.14);
+  background: linear-gradient(135deg, #185E65 0%, #0F3B3F 100%);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.55);
 }
 
 .bell-icon.ringing {
@@ -526,37 +545,37 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   5. ARTIFICIAL MARIGOLD TORANS ON BOTH SIDES (Stylized & Animated)
+   5. ARTIFICIAL MARIGOLD TORANS ON BOTH SIDES (Thicker & Equal Minimal Sway)
    -------------------------------------------------------------------------- */
 .side-toran {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 40px;
+  width: 46px; /* Thicker, lush presence as requested */
   z-index: 50;
   pointer-events: none;
   background-image: url('../assets/images/luxury_toran_garland.svg');
   background-repeat: repeat-y;
-  background-size: 40px 172px;
-  filter: drop-shadow(0 6px 14px rgba(15, 59, 63, 0.2));
-  animation: toranSway 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  background-size: 46px 198px;
+  filter: drop-shadow(0 6px 14px rgba(15, 59, 63, 0.22));
+  /* Equal, minimal horizontal sway from top to bottom without rotational distortion */
+  animation: toranSway 7.5s ease-in-out infinite alternate;
 }
 
 .side-toran-left {
   left: 2px;
-  transform-origin: top left;
 }
 
 .side-toran-right {
   right: 2px;
-  transform-origin: top right;
-  animation-delay: -2.75s; /* Natural offset breeze sway - preserved perfectly */
+  animation-delay: -3.75s; /* Natural offset breeze */
 }
 
+/* Pure translation: completely equal & minimal at top, middle, and bottom */
 @keyframes toranSway {
-  0% { transform: rotate(0deg) translateX(0); }
-  50% { transform: rotate(0.7deg) translateX(1px); }
-  100% { transform: rotate(-0.7deg) translateX(-1px); }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+  100% { transform: translateX(-2px); }
 }
 
 /* --------------------------------------------------------------------------
@@ -567,22 +586,24 @@ a {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 44px 50px; /* Generous breathing room so real torans frame content like a mandap */
+  padding: 0 48px 40px; /* Generous breathing room so thicker torans frame content like a mandap */
   background-color: var(--bg-royal-ivory);
+  overflow-x: clip; /* Cleanly cuts off any horizontal overflow/leak */
+  box-sizing: border-box;
 }
 
-/* Subtle Centered Navigation Bar */
+/* Royal Morpankhi & Gold Centered Navigation Bar */
 .subtle-nav {
   position: sticky;
   top: 10px;
   z-index: 800;
-  margin: 10px 0 18px;
-  background: rgba(255, 253, 249, 0.95);
-  border: 1px solid rgba(197, 160, 89, 0.45);
+  margin: 10px 0 16px;
+  background: linear-gradient(135deg, rgba(15, 59, 63, 0.96) 0%, rgba(7, 37, 40, 0.98) 100%);
+  border: 1.5px solid var(--royal-gold);
   border-radius: 30px;
   padding: 6px 8px;
-  box-shadow: 0 4px 20px rgba(15, 59, 63, 0.06);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(15, 59, 63, 0.35);
+  backdrop-filter: blur(12px);
 }
 
 .nav-links {
@@ -596,15 +617,16 @@ a {
 .nav-links a {
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--royal-morpankhi);
+  color: #F7E8C3;
   padding: 4px 8px;
   border-radius: 14px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-links a:hover, .nav-links a:focus-visible {
-  background: var(--royal-morpankhi);
-  color: #FFFDF9;
+  background: linear-gradient(135deg, var(--royal-gold-foil), var(--royal-gold));
+  color: #072225;
+  font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------
@@ -656,7 +678,7 @@ a {
 }
 
 .invitation-section {
-  padding: 24px 0;
+  padding: 16px 0;
   position: relative;
 }
 
@@ -666,26 +688,27 @@ a {
 
 .section-header {
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .section-tag {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--royal-morpankhi);
-  background: var(--royal-morpankhi-tint);
-  border: 1px solid rgba(15, 59, 63, 0.2);
-  padding: 2px 12px;
+  color: #F7E8C3;
+  background: linear-gradient(135deg, #0F3B3F 0%, #072225 100%);
+  border: 1px solid var(--royal-gold);
+  padding: 3px 14px;
   border-radius: 20px;
   margin-bottom: 6px;
   letter-spacing: 0.5px;
+  box-shadow: 0 3px 10px rgba(15, 59, 63, 0.25);
 }
 
 .section-title {
   font-family: var(--font-festive);
   font-size: 1.85rem;
-  color: var(--royal-maroon);
+  color: var(--royal-morpankhi);
   line-height: 1.3;
   margin-bottom: 6px;
 }
@@ -741,7 +764,7 @@ a {
 .main-festive-title {
   font-family: var(--font-festive);
   font-size: 2.15rem;
-  color: var(--royal-maroon);
+  color: var(--royal-morpankhi);
   line-height: 1.25;
   margin-bottom: 6px;
 }
@@ -750,12 +773,13 @@ a {
   display: inline-block;
   font-family: var(--font-royal);
   font-size: 1.15rem;
-  color: var(--royal-morpankhi);
-  background: #FFFDF9;
-  border: 1px solid var(--royal-gold);
+  color: #F7E8C3;
+  background: linear-gradient(135deg, #0F3B3F 0%, #072528 100%);
+  border: 1.5px solid var(--royal-gold);
   border-radius: 20px;
-  padding: 3px 18px;
+  padding: 4px 20px;
   margin-top: 4px;
+  box-shadow: 0 4px 14px rgba(15, 59, 63, 0.3);
 }
 
 .ornamental-divider {
@@ -847,23 +871,35 @@ a {
 .family-name-banner {
   text-align: center;
   background: var(--bg-royal-card);
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  border: 1.5px solid var(--royal-gold);
   border-radius: var(--radius-md);
   padding: 18px 20px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-royal);
+  position: relative;
+  overflow: hidden;
+}
+
+.family-name-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(to right, var(--royal-gold), var(--royal-morpankhi), var(--royal-gold));
 }
 
 .banner-subtext {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-royal-muted);
+  font-weight: 700;
+  color: var(--royal-morpankhi);
   letter-spacing: 1px;
 }
 
 .surname-highlight {
   font-family: var(--font-royal);
-  font-size: 1.95rem;
-  color: var(--royal-maroon);
+  font-size: 2rem;
+  color: var(--royal-morpankhi);
   margin: 4px 0 6px;
   letter-spacing: 0.5px;
 }
@@ -1595,27 +1631,28 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   16. SACRED FOOTER (पारंपरिक सांगता)
+   16. SACRED FOOTER (पारंपरिक सांगता - Royal Morpankhi & Gold)
    -------------------------------------------------------------------------- */
 .sacred-footer {
-  background: linear-gradient(to bottom, var(--bg-royal-ivory), #EAE1D1);
-  padding: 24px 16px 36px;
+  background: linear-gradient(180deg, #FAF8F3 0%, #E6F0F2 30%, #0F3B3F 75%, #072225 100%);
+  padding: 24px 16px 44px;
   text-align: center;
-  border-top: 1.5px solid var(--royal-gold);
-  margin-top: 20px;
+  border-top: 2px solid var(--royal-gold);
+  margin-top: 24px;
+  border-radius: var(--radius-arch) var(--radius-arch) 0 0;
 }
 
 .footer-toran {
-  height: 10px;
-  background: radial-gradient(circle at 5px 5px, var(--royal-gold) 3px, transparent 4px) repeat-x;
-  background-size: 10px 10px;
-  margin-bottom: 14px;
-  opacity: 0.6;
+  height: 12px;
+  background: radial-gradient(circle at 6px 6px, var(--royal-gold) 4px, transparent 5px) repeat-x;
+  background-size: 14px 12px;
+  margin-bottom: 16px;
+  opacity: 0.85;
 }
 
 .footer-diyas {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -1623,22 +1660,23 @@ a {
 
 .footer-ghosh {
   font-family: var(--font-royal);
-  font-size: 1.35rem;
-  color: var(--royal-maroon);
+  font-size: 1.4rem;
+  color: #F7E8C3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   margin-bottom: 4px;
 }
 
 .footer-subghosh {
   font-family: var(--font-festive);
-  font-size: 1.15rem;
-  color: var(--royal-morpankhi);
+  font-size: 1.2rem;
+  color: #E8CA78;
   margin-bottom: 8px;
 }
 
 .footer-blessing {
   font-family: var(--font-shloka);
-  font-size: 0.95rem;
-  color: var(--text-royal-muted);
+  font-size: 0.98rem;
+  color: rgba(247, 232, 195, 0.88);
   letter-spacing: 1px;
 }
 

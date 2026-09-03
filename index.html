@@ -18,22 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet (Cache-busted v=6) -->
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <!-- Stylesheet (Cache-busted v=7) -->
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
-
-  <!-- Floating Audio & Utility Controls (Repositioned to bottom-right so it never overlaps navigation) -->
-  <aside class="floating-controls" aria-label="ध्वनी व साधने">
-    <button id="soundToggleBtn" class="control-btn" aria-label="ध्वनी चालू किंवा बंद करा" title="ध्वनी चालू/बंद">
-      <span class="control-icon bell-icon" aria-hidden="true">🔔</span>
-      <span class="control-text" id="soundStatusText">ध्वनी</span>
-    </button>
-    <button id="showerPetalsBtn" class="control-btn" aria-label="पुष्पवृष्टी करा" title="पुष्पवृष्टी">
-      <span class="control-icon" aria-hidden="true">🌸</span>
-      <span class="control-text">पुष्पवृष्टी</span>
-    </button>
-  </aside>
 
   <!-- Interactive Canvas for Falling Marigold Petals (Runs strictly for 3 seconds on door open or on demand) -->
   <canvas id="petalCanvas" class="petal-canvas" aria-hidden="true"></canvas>
@@ -649,6 +637,18 @@
       </div>
     </section>
 
+    <!-- Floating Audio & Utility Controls (Strictly bound to website container and visible only after door opening) -->
+    <aside class="floating-controls" id="floatingControls" aria-label="ध्वनी व साधने">
+      <button id="soundToggleBtn" class="control-btn" aria-label="ध्वनी चालू किंवा बंद करा" title="ध्वनी चालू/बंद">
+        <span class="control-icon bell-icon" aria-hidden="true">🔔</span>
+        <span class="control-text" id="soundStatusText">ध्वनी</span>
+      </button>
+      <button id="showerPetalsBtn" class="control-btn" aria-label="पुष्पवृष्टी करा" title="पुष्पवृष्टी">
+        <span class="control-icon" aria-hidden="true">🌸</span>
+        <span class="control-text">पुष्पवृष्टी</span>
+      </button>
+    </aside>
+
     <!-- 11. FINAL SACRED FOOTER (पारंपरिक सांगता) -->
     <footer class="sacred-footer">
       <div class="footer-toran" aria-hidden="true"></div>
@@ -666,7 +666,7 @@
 
   </main>
 
-  <!-- JavaScript (Cache-busted v=6) -->
-  <script src="js/script.js?v=6"></script>
+  <!-- JavaScript (Cache-busted v=7) -->
+  <script src="js/script.js?v=7"></script>
 </body>
 </html>
