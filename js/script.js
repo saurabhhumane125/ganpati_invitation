@@ -170,12 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Launch celebratory flower shower for EXACTLY 5 SECONDS
     triggerPetalBurst(40, 5000);
 
-    // After animation finishes, smoothly focus the reveal section
+    // After grand door parting animation finishes, smoothly focus the reveal section
     setTimeout(() => {
       if (revealSection) {
         revealSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 1200);
+    }, 2600);
   }
 
   function replayDoor() {
